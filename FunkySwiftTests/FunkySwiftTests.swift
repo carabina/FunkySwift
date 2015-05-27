@@ -20,19 +20,15 @@ class FunkySwiftTests: XCTestCase {
 
   func testMine() {
     self.measureBlock() {
-      for _ in 0...10000 {
-        for (index, value) in xEnumerate(toSearch) {
-          let an = value
-        }
+      for _ in 0...1000000 {
+        let an = findMany(toSearch, {$0 != "a"})
       }
     }
   }
   func testHis() {
     self.measureBlock() {
-      for _ in 0...10000 {
-        for (index, value) in xEnumerate(toSearch) {
-          let an = value
-        }
+      for _ in 0...1000000 {
+        let an = findMany(toSearch, {$0 != "a"})
       }
     }
   }

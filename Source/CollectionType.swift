@@ -14,7 +14,7 @@ Return a LazySequence containing pairs (n, x), where *n*s are consecutive indice
 
 func xEnumerate<C: CollectionType>(base: C) -> LazySequence<Zip2<Range<C.Index>, C>> {
   
-  return lazy( zip(indices(base), base) )
+  return lazy(zip(indices(base), base))
   
 }
 /**
@@ -27,34 +27,13 @@ func find
     return nil
 }
 /**
-Returns the indices of elements that satisfy a predicate.
+Returns the indices of elements that satisfy the include closure.
 */
 
 func findMany
-  <C : CollectionType>(domain: C, predicate: C.Generator.Element -> Bool)
-  -> LazySequence<GeneratorOf<C.Index>> {
-    var inds = indices(domain).generate()
-    var ind: C.Index?
-    return lazy( GeneratorOf {
-      do {ind = inds.next()} while ind.map{!predicate(domain[$0])} ?? false
-      return ind
-      } )
-}
-func findMany2
-  <C : CollectionType>(domain: C, predicate: C.Generator.Element -> Bool)
-  -> LazySequence<MapSequenceView<FilterSequenceView<Zip2<Range<C.Index>, C>>>> {
-    
-    
-    let jo = lazy( zip(indices(domain), domain) ).filter{predicate($1)}.map{$0.0}
-    
-    
-    
-}
-func findMany3
-  <C : CollectionType>(domain: C, predicate: C.Generator.Element -> Bool)
+  <C : CollectionType>(domain: C, include: C.Generator.Element -> Bool)
   -> LazySequence<FilterSequenceView<Range<C.Index>>>{
     
-    return lazy(indices(domain)).filter{predicate(domain[$0])}
-    
+    return lazy(indices(domain)).filter{include(domain[$0])}
 
 }
