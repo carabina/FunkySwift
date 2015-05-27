@@ -1,0 +1,659 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		709AE4301B162E6600090E35 /* FunkySwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE42F1B162E6600090E35 /* FunkySwiftTests.swift */; };
+		709AE45A1B162F6500090E35 /* FunkySwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 709AE4581B162F3600090E35 /* FunkySwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		709AE45B1B162F6600090E35 /* FunkySwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 709AE4581B162F3600090E35 /* FunkySwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		709AE45D1B16315100090E35 /* FunkySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE45C1B16315100090E35 /* FunkySwift.swift */; };
+		709AE45E1B16315100090E35 /* FunkySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE45C1B16315100090E35 /* FunkySwift.swift */; };
+		709AE4651B1632E800090E35 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4601B1632E800090E35 /* Array.swift */; };
+		709AE4661B1632E800090E35 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4601B1632E800090E35 /* Array.swift */; };
+		709AE4671B1632E800090E35 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4611B1632E800090E35 /* CollectionType.swift */; };
+		709AE4681B1632E800090E35 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4611B1632E800090E35 /* CollectionType.swift */; };
+		709AE4691B1632E800090E35 /* LazySequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4621B1632E800090E35 /* LazySequence.swift */; };
+		709AE46A1B1632E800090E35 /* LazySequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4621B1632E800090E35 /* LazySequence.swift */; };
+		709AE46B1B1632E800090E35 /* RangesAndIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4631B1632E800090E35 /* RangesAndIntervals.swift */; };
+		709AE46C1B1632E800090E35 /* RangesAndIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4631B1632E800090E35 /* RangesAndIntervals.swift */; };
+		709AE46D1B1632E800090E35 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4641B1632E800090E35 /* String.swift */; };
+		709AE46E1B1632E800090E35 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4641B1632E800090E35 /* String.swift */; };
+		709AE4751B16370000090E35 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4601B1632E800090E35 /* Array.swift */; };
+		709AE4761B16370100090E35 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4601B1632E800090E35 /* Array.swift */; };
+		709AE4771B16370300090E35 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4611B1632E800090E35 /* CollectionType.swift */; };
+		709AE4781B16370400090E35 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4611B1632E800090E35 /* CollectionType.swift */; };
+		709AE4791B16370600090E35 /* LazySequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4621B1632E800090E35 /* LazySequence.swift */; };
+		709AE47A1B16370700090E35 /* LazySequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4621B1632E800090E35 /* LazySequence.swift */; };
+		709AE47B1B16371D00090E35 /* RangesAndIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4631B1632E800090E35 /* RangesAndIntervals.swift */; };
+		709AE47C1B16371E00090E35 /* RangesAndIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4631B1632E800090E35 /* RangesAndIntervals.swift */; };
+		709AE47D1B16372100090E35 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4641B1632E800090E35 /* String.swift */; };
+		709AE47E1B16372200090E35 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4641B1632E800090E35 /* String.swift */; };
+		709AE47F1B16372500090E35 /* FunkySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE45C1B16315100090E35 /* FunkySwift.swift */; };
+		709AE4801B16372700090E35 /* FunkySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE45C1B16315100090E35 /* FunkySwift.swift */; };
+		709AE4811B16376D00090E35 /* FunkySwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE42F1B162E6600090E35 /* FunkySwiftTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		709AE42A1B162E6600090E35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 709AE4141B162E6500090E35 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 709AE41C1B162E6500090E35;
+			remoteInfo = FunkySwift;
+		};
+		709AE44A1B162EB400090E35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 709AE4141B162E6500090E35 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 709AE43D1B162EB400090E35;
+			remoteInfo = "FunkySwift OSX";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		709AE41D1B162E6500090E35 /* FunkySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FunkySwift.framework; path = "/Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug-iphoneos/FunkySwift.framework"; sourceTree = "<absolute>"; };
+		709AE4281B162E6600090E35 /* FunkySwiftTests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "FunkySwiftTests iOS.xctest"; path = "/Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug-iphoneos/FunkySwiftTests iOS.xctest"; sourceTree = "<absolute>"; };
+		709AE42E1B162E6600090E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		709AE42F1B162E6600090E35 /* FunkySwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FunkySwiftTests.swift; sourceTree = "<group>"; };
+		709AE43E1B162EB400090E35 /* FunkySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FunkySwift.framework; path = /Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug/FunkySwift.framework; sourceTree = "<absolute>"; };
+		709AE4481B162EB400090E35 /* FunkySwift OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "FunkySwift OSXTests.xctest"; path = "/Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug/FunkySwift OSXTests.xctest"; sourceTree = "<absolute>"; };
+		709AE4581B162F3600090E35 /* FunkySwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunkySwift.h; sourceTree = "<group>"; };
+		709AE4591B162F3600090E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		709AE45C1B16315100090E35 /* FunkySwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunkySwift.swift; sourceTree = "<group>"; };
+		709AE4601B1632E800090E35 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		709AE4611B1632E800090E35 /* CollectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
+		709AE4621B1632E800090E35 /* LazySequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazySequence.swift; sourceTree = "<group>"; };
+		709AE4631B1632E800090E35 /* RangesAndIntervals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangesAndIntervals.swift; sourceTree = "<group>"; };
+		709AE4641B1632E800090E35 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		709AE4191B162E6500090E35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709AE4251B162E6600090E35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709AE43A1B162EB400090E35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709AE4451B162EB400090E35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		709AE4131B162E6500090E35 = {
+			isa = PBXGroup;
+			children = (
+				709AE42C1B162E6600090E35 /* FunkySwiftTests */,
+				709AE4571B162F3600090E35 /* Source */,
+			);
+			sourceTree = "<group>";
+		};
+		709AE42C1B162E6600090E35 /* FunkySwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				709AE42E1B162E6600090E35 /* Info.plist */,
+				709AE42F1B162E6600090E35 /* FunkySwiftTests.swift */,
+			);
+			path = FunkySwiftTests;
+			sourceTree = "<group>";
+		};
+		709AE4571B162F3600090E35 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				709AE4601B1632E800090E35 /* Array.swift */,
+				709AE4611B1632E800090E35 /* CollectionType.swift */,
+				709AE4621B1632E800090E35 /* LazySequence.swift */,
+				709AE4631B1632E800090E35 /* RangesAndIntervals.swift */,
+				709AE4641B1632E800090E35 /* String.swift */,
+				709AE45C1B16315100090E35 /* FunkySwift.swift */,
+				709AE4581B162F3600090E35 /* FunkySwift.h */,
+				709AE4591B162F3600090E35 /* Info.plist */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		709AE41A1B162E6500090E35 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				709AE45A1B162F6500090E35 /* FunkySwift.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709AE43B1B162EB400090E35 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				709AE45B1B162F6600090E35 /* FunkySwift.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		709AE41C1B162E6500090E35 /* FunkySwift iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 709AE4331B162E6600090E35 /* Build configuration list for PBXNativeTarget "FunkySwift iOS" */;
+			buildPhases = (
+				709AE4181B162E6500090E35 /* Sources */,
+				709AE4191B162E6500090E35 /* Frameworks */,
+				709AE41A1B162E6500090E35 /* Headers */,
+				709AE41B1B162E6500090E35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FunkySwift iOS";
+			productName = FunkySwift;
+			productReference = 709AE41D1B162E6500090E35 /* FunkySwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		709AE4271B162E6600090E35 /* FunkySwiftTests iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 709AE4361B162E6600090E35 /* Build configuration list for PBXNativeTarget "FunkySwiftTests iOS" */;
+			buildPhases = (
+				709AE4241B162E6600090E35 /* Sources */,
+				709AE4251B162E6600090E35 /* Frameworks */,
+				709AE4261B162E6600090E35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				709AE42B1B162E6600090E35 /* PBXTargetDependency */,
+			);
+			name = "FunkySwiftTests iOS";
+			productName = FunkySwiftTests;
+			productReference = 709AE4281B162E6600090E35 /* FunkySwiftTests iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		709AE43D1B162EB400090E35 /* FunkySwift OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 709AE4511B162EB400090E35 /* Build configuration list for PBXNativeTarget "FunkySwift OSX" */;
+			buildPhases = (
+				709AE4391B162EB400090E35 /* Sources */,
+				709AE43A1B162EB400090E35 /* Frameworks */,
+				709AE43B1B162EB400090E35 /* Headers */,
+				709AE43C1B162EB400090E35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FunkySwift OSX";
+			productName = "FunkySwift OSX";
+			productReference = 709AE43E1B162EB400090E35 /* FunkySwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		709AE4471B162EB400090E35 /* FunkySwift OSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 709AE4541B162EB400090E35 /* Build configuration list for PBXNativeTarget "FunkySwift OSXTests" */;
+			buildPhases = (
+				709AE4441B162EB400090E35 /* Sources */,
+				709AE4451B162EB400090E35 /* Frameworks */,
+				709AE4461B162EB400090E35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				709AE44B1B162EB400090E35 /* PBXTargetDependency */,
+			);
+			name = "FunkySwift OSXTests";
+			productName = "FunkySwift OSXTests";
+			productReference = 709AE4481B162EB400090E35 /* FunkySwift OSXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		709AE4141B162E6500090E35 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Donnacha Oisín Kidney";
+				TargetAttributes = {
+					709AE41C1B162E6500090E35 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					709AE4271B162E6600090E35 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					709AE43D1B162EB400090E35 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					709AE4471B162EB400090E35 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+				};
+			};
+			buildConfigurationList = 709AE4171B162E6500090E35 /* Build configuration list for PBXProject "FunkySwift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 709AE4131B162E6500090E35;
+			productRefGroup = 709AE4131B162E6500090E35;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				709AE41C1B162E6500090E35 /* FunkySwift iOS */,
+				709AE4271B162E6600090E35 /* FunkySwiftTests iOS */,
+				709AE43D1B162EB400090E35 /* FunkySwift OSX */,
+				709AE4471B162EB400090E35 /* FunkySwift OSXTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		709AE41B1B162E6500090E35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709AE4261B162E6600090E35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709AE43C1B162EB400090E35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709AE4461B162EB400090E35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		709AE4181B162E6500090E35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				709AE46D1B1632E800090E35 /* String.swift in Sources */,
+				709AE45D1B16315100090E35 /* FunkySwift.swift in Sources */,
+				709AE46B1B1632E800090E35 /* RangesAndIntervals.swift in Sources */,
+				709AE4651B1632E800090E35 /* Array.swift in Sources */,
+				709AE4691B1632E800090E35 /* LazySequence.swift in Sources */,
+				709AE4671B1632E800090E35 /* CollectionType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709AE4241B162E6600090E35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				709AE47F1B16372500090E35 /* FunkySwift.swift in Sources */,
+				709AE47D1B16372100090E35 /* String.swift in Sources */,
+				709AE4301B162E6600090E35 /* FunkySwiftTests.swift in Sources */,
+				709AE47B1B16371D00090E35 /* RangesAndIntervals.swift in Sources */,
+				709AE4751B16370000090E35 /* Array.swift in Sources */,
+				709AE4791B16370600090E35 /* LazySequence.swift in Sources */,
+				709AE4771B16370300090E35 /* CollectionType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709AE4391B162EB400090E35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				709AE46E1B1632E800090E35 /* String.swift in Sources */,
+				709AE45E1B16315100090E35 /* FunkySwift.swift in Sources */,
+				709AE46C1B1632E800090E35 /* RangesAndIntervals.swift in Sources */,
+				709AE4661B1632E800090E35 /* Array.swift in Sources */,
+				709AE46A1B1632E800090E35 /* LazySequence.swift in Sources */,
+				709AE4681B1632E800090E35 /* CollectionType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709AE4441B162EB400090E35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				709AE4801B16372700090E35 /* FunkySwift.swift in Sources */,
+				709AE47E1B16372200090E35 /* String.swift in Sources */,
+				709AE47C1B16371E00090E35 /* RangesAndIntervals.swift in Sources */,
+				709AE4761B16370100090E35 /* Array.swift in Sources */,
+				709AE47A1B16370700090E35 /* LazySequence.swift in Sources */,
+				709AE4811B16376D00090E35 /* FunkySwiftTests.swift in Sources */,
+				709AE4781B16370400090E35 /* CollectionType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		709AE42B1B162E6600090E35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 709AE41C1B162E6500090E35 /* FunkySwift iOS */;
+			targetProxy = 709AE42A1B162E6600090E35 /* PBXContainerItemProxy */;
+		};
+		709AE44B1B162EB400090E35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 709AE43D1B162EB400090E35 /* FunkySwift OSX */;
+			targetProxy = 709AE44A1B162EB400090E35 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		709AE4311B162E6600090E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		709AE4321B162E6600090E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		709AE4341B162E6600090E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = FunkySwift;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		709AE4351B162E6600090E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = FunkySwift;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		709AE4371B162E6600090E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FunkySwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		709AE4381B162E6600090E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FunkySwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		709AE4521B162EB400090E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = FunkySwift;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		709AE4531B162EB400090E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = FunkySwift;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		709AE4551B162EB400090E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FunkySwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		709AE4561B162EB400090E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FunkySwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		709AE4171B162E6500090E35 /* Build configuration list for PBXProject "FunkySwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				709AE4311B162E6600090E35 /* Debug */,
+				709AE4321B162E6600090E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		709AE4331B162E6600090E35 /* Build configuration list for PBXNativeTarget "FunkySwift iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				709AE4341B162E6600090E35 /* Debug */,
+				709AE4351B162E6600090E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		709AE4361B162E6600090E35 /* Build configuration list for PBXNativeTarget "FunkySwiftTests iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				709AE4371B162E6600090E35 /* Debug */,
+				709AE4381B162E6600090E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		709AE4511B162EB400090E35 /* Build configuration list for PBXNativeTarget "FunkySwift OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				709AE4521B162EB400090E35 /* Debug */,
+				709AE4531B162EB400090E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		709AE4541B162EB400090E35 /* Build configuration list for PBXNativeTarget "FunkySwift OSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				709AE4551B162EB400090E35 /* Debug */,
+				709AE4561B162EB400090E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 709AE4141B162E6500090E35 /* Project object */;
+}
