@@ -74,11 +74,3 @@ func + <T>(l: ClosedInterval<T>, r: ClosedInterval<T>) -> ClosedInterval<T> {
 func - <T>(l: ClosedInterval<T>, r: ClosedInterval<T>) -> ClosedInterval<T>? {
   return l.subtract(r)
 }
-
-
-
-
-
-
-
-
