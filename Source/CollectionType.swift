@@ -12,21 +12,11 @@ import Foundation
 Return a LazySequence containing pairs (n, x), where *n*s are consecutive indices of base, and xs are the elements of base.
 */
 
-func xEnumerate<C: CollectionType>(base: C) -> LazySequence<GeneratorOf<(C.Index, C.Generator.Element)>> {
+func xEnumerate<C: CollectionType>(base: C) -> LazySequence<Zip2<Range<C.Index>, C>> {
   
-  var (inds, vals) = (indices(base).generate(), base.generate())
+  return lazy( zip(indices(base), base) )
   
-  return lazy(
-    GeneratorOf{
-      if let val = vals.next(), ind = inds.next() {
-        return (ind, val)
-      } else {
-        return nil
-      }
-    }
-  )
 }
-
 /**
 Returns the first index where a value satisfies a predicate or nil if one is not found.
 */
@@ -49,4 +39,22 @@ func findMany
       do {ind = inds.next()} while ind.map{!predicate(domain[$0])} ?? false
       return ind
       } )
+}
+func findMany2
+  <C : CollectionType>(domain: C, predicate: C.Generator.Element -> Bool)
+  -> LazySequence<MapSequenceView<FilterSequenceView<Zip2<Range<C.Index>, C>>>> {
+    
+    
+    let jo = lazy( zip(indices(domain), domain) ).filter{predicate($1)}.map{$0.0}
+    
+    
+    
+}
+func findMany3
+  <C : CollectionType>(domain: C, predicate: C.Generator.Element -> Bool)
+  -> LazySequence<FilterSequenceView<Range<C.Index>>>{
+    
+    return lazy(indices(domain)).filter{predicate(domain[$0])}
+    
+
 }
