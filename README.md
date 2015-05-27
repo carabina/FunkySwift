@@ -20,9 +20,10 @@ FunkySwift is a library of extensions and tools for Swift. They're a bit functio
 
 ###Combinatorics###
 ------------ | -------------
+one | two
 ```swift
 func combinations(n: Int) -> [[T]]
-``` | func
+```
 Returns the combinations of a given length of self
 ```swift
 func permsWithRep(n: Int) -> [[T]]
