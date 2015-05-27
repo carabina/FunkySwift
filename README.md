@@ -26,6 +26,10 @@ Function  | Description
 ------------- | -------------
 ```combinations(n: Int) -> [[T]]```  | Returns an array of the combinations of a given length of self.
 
+```swift
+[1, 2, 3].combinations(2) // [[2, 3], [1, 3], [1, 2]]
+```
+
 ####Permutations####
 Function  | Description
 ------------- | -------------
@@ -36,12 +40,31 @@ Function  | Description
 
 These functions return the permutations with and without repetitions of self. Permutations with repetition are generated with ```map()``` nested in ```flatMap()```. Permutations without repetition are generated with a recursive implementation of Heap's algorithm.
 
+```swift
+[1, 2].permsWithRep()     // [[1, 1], [1, 2], [2, 1], [2, 2]]
+[1, 2, 3].permsWithRep(2) // [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]]
+
+[1, 2, 3].perms()         // [[1, 2, 3], [2, 1, 3], [3, 1, 2], [1, 3, 2], [2, 3, 1], [3, 2, 1]]
+[1, 2, 3].perms(2)        // [[2, 3], [3, 2], [1, 3], [3, 1], [1, 2], [2, 1]]
+```
+
+
 Function  | Description
 ------------- | -------------
 ```shuffle()```  | Randomly shuffles self
 ```shuffled() -> [T]``` | Returns self randomly shuffled
 
 These functions randomly shuffle self, with the Fisher-Yates shuffle algorithm.
+
+```swift
+[1, 2, 3].shuffled()  // [2, 3, 1]
+
+var ar = [1, 2, 3]
+ar.shuffle()
+ar                    // [3, 1, 2]
+```
+
+
 
 Function  | Description
 ------------- | -------------
