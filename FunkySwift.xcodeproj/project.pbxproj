@@ -55,12 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		709AE41D1B162E6500090E35 /* FunkySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FunkySwift.framework; path = "/Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug-iphoneos/FunkySwift.framework"; sourceTree = "<absolute>"; };
-		709AE4281B162E6600090E35 /* FunkySwiftTests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "FunkySwiftTests iOS.xctest"; path = "/Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug-iphoneos/FunkySwiftTests iOS.xctest"; sourceTree = "<absolute>"; };
 		709AE42E1B162E6600090E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		709AE42F1B162E6600090E35 /* FunkySwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FunkySwiftTests.swift; sourceTree = "<group>"; };
-		709AE43E1B162EB400090E35 /* FunkySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FunkySwift.framework; path = /Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug/FunkySwift.framework; sourceTree = "<absolute>"; };
-		709AE4481B162EB400090E35 /* FunkySwift OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "FunkySwift OSXTests.xctest"; path = "/Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug/FunkySwift OSXTests.xctest"; sourceTree = "<absolute>"; };
 		709AE4581B162F3600090E35 /* FunkySwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunkySwift.h; sourceTree = "<group>"; };
 		709AE4591B162F3600090E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		709AE45C1B16315100090E35 /* FunkySwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunkySwift.swift; sourceTree = "<group>"; };
@@ -69,6 +65,10 @@
 		709AE4621B1632E800090E35 /* LazySequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazySequence.swift; sourceTree = "<group>"; };
 		709AE4631B1632E800090E35 /* RangesAndIntervals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangesAndIntervals.swift; sourceTree = "<group>"; };
 		709AE4641B1632E800090E35 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		709AE4821B1639A900090E35 /* FunkySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FunkySwift.framework; path = "/Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug-iphoneos/FunkySwift.framework"; sourceTree = "<absolute>"; };
+		709AE4831B1639A900090E35 /* FunkySwiftTests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "FunkySwiftTests iOS.xctest"; path = "/Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug-iphoneos/FunkySwiftTests iOS.xctest"; sourceTree = "<absolute>"; };
+		709AE4841B1639A900090E35 /* FunkySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FunkySwift.framework; path = /Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug/FunkySwift.framework; sourceTree = "<absolute>"; };
+		709AE4851B1639A900090E35 /* FunkySwift OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "FunkySwift OSXTests.xctest"; path = "/Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug/FunkySwift OSXTests.xctest"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +172,7 @@
 			);
 			name = "FunkySwift iOS";
 			productName = FunkySwift;
-			productReference = 709AE41D1B162E6500090E35 /* FunkySwift.framework */;
+			productReference = 709AE4821B1639A900090E35 /* FunkySwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		709AE4271B162E6600090E35 /* FunkySwiftTests iOS */ = {
@@ -190,7 +190,7 @@
 			);
 			name = "FunkySwiftTests iOS";
 			productName = FunkySwiftTests;
-			productReference = 709AE4281B162E6600090E35 /* FunkySwiftTests iOS.xctest */;
+			productReference = 709AE4831B1639A900090E35 /* FunkySwiftTests iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		709AE43D1B162EB400090E35 /* FunkySwift OSX */ = {
@@ -208,7 +208,7 @@
 			);
 			name = "FunkySwift OSX";
 			productName = "FunkySwift OSX";
-			productReference = 709AE43E1B162EB400090E35 /* FunkySwift.framework */;
+			productReference = 709AE4841B1639A900090E35 /* FunkySwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		709AE4471B162EB400090E35 /* FunkySwift OSXTests */ = {
@@ -226,7 +226,7 @@
 			);
 			name = "FunkySwift OSXTests";
 			productName = "FunkySwift OSXTests";
-			productReference = 709AE4481B162EB400090E35 /* FunkySwift OSXTests.xctest */;
+			productReference = 709AE4851B1639A900090E35 /* FunkySwift OSXTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -628,6 +628,7 @@
 				709AE4351B162E6600090E35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		709AE4361B162E6600090E35 /* Build configuration list for PBXNativeTarget "FunkySwiftTests iOS" */ = {
 			isa = XCConfigurationList;
@@ -636,6 +637,7 @@
 				709AE4381B162E6600090E35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		709AE4511B162EB400090E35 /* Build configuration list for PBXNativeTarget "FunkySwift OSX" */ = {
 			isa = XCConfigurationList;
@@ -644,6 +646,7 @@
 				709AE4531B162EB400090E35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		709AE4541B162EB400090E35 /* Build configuration list for PBXNativeTarget "FunkySwift OSXTests" */ = {
 			isa = XCConfigurationList;
@@ -652,6 +655,7 @@
 				709AE4561B162EB400090E35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

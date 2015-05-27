@@ -208,7 +208,7 @@ extension LazySequence {
   
   func cons
     <T : SequenceType where T.Generator.Element == S.Generator.Element>
-    (with: LazySequence<T>) -> LazySequence<GeneratorOf<S.Generator.Element>> {
+    (with: T) -> LazySequence<GeneratorOf<S.Generator.Element>> {
       var (fGen, sGen) = (with.generate(), self.generate())
       return lazy( GeneratorOf{ fGen.next() ?? sGen.next() })
   }
@@ -221,7 +221,7 @@ extension LazySequence {
   */
   
   func extend
-    <T : SequenceType where T.Generator.Element == S.Generator.Element>(with: LazySequence<T>)
+    <T : SequenceType where T.Generator.Element == S.Generator.Element>(with: T)
     -> LazySequence<GeneratorOf<S.Generator.Element>> {
       var (fGen, sGen) = (self.generate(), with.generate())
       return lazy( GeneratorOf{ fGen.next() ?? sGen.next() })

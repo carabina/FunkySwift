@@ -10,7 +10,6 @@ import Foundation
 import XCTest
 
 class FunkySwiftTests: XCTestCase {
-    
 
 
 }
