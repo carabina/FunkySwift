@@ -25,7 +25,7 @@ one | two
 
 ```swift
 func combinations(n: Int) -> [[T]]
-```
+``` | two
 Returns the combinations of a given length of self
 ```swift
 func permsWithRep(n: Int) -> [[T]]
