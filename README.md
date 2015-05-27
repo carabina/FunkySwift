@@ -103,8 +103,8 @@ Function  | Description
 
 Function  | Description
 ------------- | -------------
-takeFirst() -> S.Generator.Element? | Returns the first element of the sequence (if it is present)
-take(n: Int) -> LazySequence<GeneratorOf<S.Generator.Element>> | The first n elements of the sequence
+`takeFirst() -> S.Generator.Element?` | Returns the first element of the sequence (if it is present)
+`take(n: Int) -> LazySequence<GeneratorOf<S.Generator.Element>>` | The first n elements of the sequence
 
 This function returns the first elements of a lazy sequence, without evaluating the whole sequence. If n is larger than the sequence being taken from, the entire sequence will be returned.
 
@@ -118,8 +118,8 @@ endless.take(3).array                         	// [1, 2, 3]
 
 Function  | Description
 ------------- | -------------
-dropFirst() -> LazySequence<SequenceOf<S.Generator.Element>> | elements after the first element in a sequence
-drop(n: Int) -> LazySequence<SequenceOf<S.Generator.Element>> | elements after the first n elements in a sequence
+`dropFirst() -> LazySequence<SequenceOf<S.Generator.Element>>` | elements after the first element in a sequence
+`drop(n: Int) -> LazySequence<SequenceOf<S.Generator.Element>>` | elements after the first n elements in a sequence
 
 These drop a given number of elements from a lazy sequence. Although the sequences are still evaluated lazily, the dropped elements all must be stepped through, so the complexity is O(*n*) where *n* is the number of elements dropped.
 
@@ -130,7 +130,7 @@ nums.drop(3).array                       // [4, 5]
 
 Function  | Description
 ------------- | -------------
-dropLast() -> LazySequence<GeneratorOf<S.Generator.Element>> | Return elements before the last element in self (very very slowly)
+`dropLast() -> LazySequence<GeneratorOf<S.Generator.Element>>` | Return elements before the last element in self (very very slowly)
 
 This is slow. Don't do this (ya numpty). If you start to do this, it's `.array` time.
 
@@ -138,9 +138,9 @@ This is slow. Don't do this (ya numpty). If you start to do this, it's `.array` 
 
 Function  | Description
 ------------- | -------------
-takeWhile(condition: S.Generator.Element -> Bool) -> LazySequence<GeneratorOf<S.Generator.Element>> | elements of the sequence until the condition returns false.
-dropWhile(condition: S.Generator.Element -> Bool) -> LazySequence<GeneratorOf<S.Generator.Element>> | A sequence with the first elements that return true for the condition dropped.
-takeAfter(condition: S.Generator.Element -> Bool) -> LazySequence<SequenceOf<S.Generator.Element>> | elements of the sequence after the first element that returns true for a condition.
+`takeWhile(condition: S.Generator.Element -> Bool) -> LazySequence<GeneratorOf<S.Generator.Element>>` | elements of the sequence until the condition returns false.
+`dropWhile(condition: S.Generator.Element -> Bool) -> LazySequence<GeneratorOf<S.Generator.Element>>` | A sequence with the first elements that return true for the condition dropped.
+`takeAfter(condition: S.Generator.Element -> Bool) -> LazySequence<SequenceOf<S.Generator.Element>>` | elements of the sequence after the first element that returns true for a condition.
 
 These functions drop and take from sequences on the basis of a condition. `takeWhile()` takes all of the elements up to and not including an element that returns false for the condition. `dropWhile()` continuously drops elements until an element returns false for the condition. `takeAfter()` is similar to `dropWhile()`, but with a couple differences: it drops elements that pass, rather than fail the condition, and it does not include the first element that returns true for the condition.
 
@@ -156,8 +156,8 @@ nums.takeAfter{$0 >= 5}.array	// [6, 7, 8, 9]
 
 Function  | Description
 ------------- | -------------
-reduce<U>(initial: U, combine: (U, S.Generator.Element) -> U) -> U | Return the result of repeatedly calling combine with an accumulated value initialised to initial and each element of sequence, in turn.
-reduce(combine: (S.Generator.Element, S.Generator.Element) -> S.Generator.Element) -> S.Generator.Element? | Same as above, except the initial value is taken to be the first element of the sequence.
+`reduce<U>(initial: U, combine: (U, S.Generator.Element) -> U) -> U` | Return the result of repeatedly calling combine with an accumulated value initialised to initial and each element of sequence, in turn.
+`reduce(combine: (S.Generator.Element, S.Generator.Element) -> S.Generator.Element) -> S.Generator.Element?` | Same as above, except the initial value is taken to be the first element of the sequence.
 
 The first function is just the same as the standard library `reduce()`, whereas the second doesn't require ar initial value: it uses the first value of the sequence.
 
@@ -167,8 +167,8 @@ nums.reduce(+) // 15
 ```
 Function  | Description
 ------------- | -------------
-scan<U>(initial: U, combine: (U, S.Generator.Element) -> U) -> LazySequence<GeneratorOf<U>> | Similar to the reduce() function, but produces a LazySequence of successive accumulating values
-scan(combine: (S.Generator.Element, S.Generator.Element) -> S.Generator.Element) -> LazySequence<GeneratorOf<S.Generator.Element>> | Same as above, but the initial value is taken to be the first value in the sequence
+`scan<U>(initial: U, combine: (U, S.Generator.Element) -> U) -> LazySequence<GeneratorOf<U>>` | Similar to the reduce() function, but produces a LazySequence of successive accumulating values
+`scan(combine: (S.Generator.Element, S.Generator.Element) -> S.Generator.Element) -> LazySequence<GeneratorOf<S.Generator.Element>>` | Same as above, but the initial value is taken to be the first value in the sequence
 
 These functions are similar to `reduce()`. They repeatedly apply a `combine()` closure to an accumulator. Differently, though, they return a sequence of each successive accumulator. Again, similar to `reduce()`, the version without an initial value takes the first element of the sequence as the initial value. They can be evaluated lazily, and therefore used with endless lists.
 
@@ -185,7 +185,7 @@ nums.scan(+).take(5).array 			// [3, 6, 10, 15]
 ### Making Sequences ###
 Function  | Description
 ------------- | -------------
-cycle() -> LazySequence<GeneratorOf<S.Generator.Element>> | an endless repetition of self
+`cycle() -> LazySequence<GeneratorOf<S.Generator.Element>>` | an endless repetition of self
 
 cycles a sequence (self) endlessly. 
 
@@ -194,14 +194,16 @@ LazySequence([1, 2, 3]).cycle() // 1, 2, 3, 1, 2, 3, 1, 2, 3...
 ```
 Function  | Description
 ------------- | -------------
-cons<T : SequenceType where T.Generator.Element == S.Generator.Element> (with: T) -> LazySequence<GeneratorOf<S.Generator.Element>> | Constructs a sequence with a new sequence at the beginning
-extend<T : SequenceType where T.Generator.Element == S.Generator.Element>(with: T) -> LazySequence<GeneratorOf<S.Generator.Element>> | Constructs a sequence with a new sequence at the end
-cons(element: S.Generator.Element) -> LazySequence<GeneratorOf<S.Generator.Element>> | Constructs a sequence with a new element at the beginning
-append(element: S.Generator.Element) -> LazySequence<GeneratorOf<S.Generator.Element>> | Constructs a sequence with a new element at the end
+`cons<T : SequenceType where T.Generator.Element == S.Generator.Element> (with: T) -> LazySequence<GeneratorOf<S.Generator.Element>>` | Constructs a sequence with a new sequence at the beginning
+`extend<T : SequenceType where T.Generator.Element == S.Generator.Element>(with: T) -> LazySequence<GeneratorOf<S.Generator.Element>>` | Constructs a sequence with a new sequence at the end
+`cons(element: S.Generator.Element) -> LazySequence<GeneratorOf<S.Generator.Element>>` | Constructs a sequence with a new element at the beginning
+`append(element: S.Generator.Element) -> LazySequence<GeneratorOf<S.Generator.Element>>` | Constructs a sequence with a new element at the end
 
 These are not fast. Sequences in Swift aren't lists: these aren't really `cons()` functions.
 
-uniques (isEqual: (S.Generator.Element, S.Generator.Element) -> Bool) -> LazySequence<FilterSequenceView<S>> | Returns a LazySequence of self without repetitions, according to the isEqual closure. (the non-method function is much faster)
+Function  | Description
+------------- | -------------
+`uniques (isEqual: (S.Generator.Element, S.Generator.Element) -> Bool) -> LazySequence<FilterSequenceView<S>>` | Returns a LazySequence of self without repetitions, according to the isEqual closure. (the non-method function is much faster)
 
 ## Int ##
 Function  | Description
@@ -234,10 +236,10 @@ These functions and operators allow one-ended slicing, as by [Airspeed Velocity]
 ### Closed Intervals ###
 Function  | Description
 ------------- | -------------
-contains(with: ClosedInterval<T>) -> Bool | Checks if one interval is contained entirely ion the other
-span(with: ClosedInterval) -> ClosedInterval<T> | returns the largest interval of which both ends are still inside at least one of the constituent intervals
-between(with: ClosedInterval<T>) -> ClosedInterval<T> | returns an interval that is between two other intervals. If the intervals overlap, it will return an interval between the two overlapping ends
-subtract(with: ClosedInterval<T>) -> ClosedInterval<T>? | returns self where no part of self except either the end or start is contained in the interval "with"
+`contains(with: ClosedInterval<T>) -> Bool` | Checks if one interval is contained entirely ion the other
+`span(with: ClosedInterval) -> ClosedInterval<T>` | returns the largest interval of which both ends are still inside at least one of the constituent intervals
+`between(with: ClosedInterval<T>) -> ClosedInterval<T>` | returns an interval that is between two other intervals. If the intervals overlap, it will return an interval between the two overlapping ends
+`subtract(with: ClosedInterval<T>) -> ClosedInterval<T>?` | returns self where no part of self except either the end or start is contained in the interval "with"
 
 These functions operate on `ClosedInterval`s.
 
@@ -249,34 +251,34 @@ Operator  | Equivalent Function
 # Utilities #
 Function  | Description
 ------------- | -------------
-uniques<S: SequenceType where S.Generator.Element: Hashable> (seq: S) -> LazySequence<FilterSequenceView<S>> | Returns a LazySequence of a sequence without repetitions, (much faster than the method on LazySequence, seeing as it uses Sets)
+`uniques<S: SequenceType where S.Generator.Element: Hashable> (seq: S) -> LazySequence<FilterSequenceView<S>>` | Returns a LazySequence of a sequence without repetitions, (much faster than the method on LazySequence, seeing as it uses Sets)
 
 This is similar to the method on `LazySequence`, but since it uses `Set`s, its arguments need to be `Hashable`, and it is much faster.
 
 Function  | Description
 ------------- | -------------
-all<S: SequenceType>(seq: S, condition: S.Generator.Element -> Bool) -> Bool | Checks if all elements in seq satisfy the condition
+`all<S: SequenceType>(seq: S, condition: S.Generator.Element -> Bool) -> Bool` | Checks if all elements in seq satisfy the condition
 
 This runs a closure over all elements of a sequence, and returns true if all of the elements return true.
 
 Function  | Description
 ------------- | -------------
-nextLexPerm<T: Comparable>(inout a: [T]) -> [T]? | Returns the next permutation of an array in lexicographical order
-lexPermsOf<T: Comparable>(var a: [T]) -> LazySequence<GeneratorOf<[T]>> | Returns a Generator of permutations of a, in lexicographical order
+`nextLexPerm<T: Comparable>(inout a: [T]) -> [T]?` | Returns the next permutation of an array in lexicographical order
+`lexPermsOf<T: Comparable>(var a: [T]) -> LazySequence<GeneratorOf<[T]>>` | Returns a Generator of permutations of a, in lexicographical order
 
 These work the same as the methods on `Array`, but they don't need the `isOrderedBefore` closure, as their arguments need to be comparable.
 
 Function  | Description
 ------------- | -------------
-xEnumerate<C: CollectionType>(base: C) -> LazySequence<Zip2<Range<C.Index>, C>> | Return a LazySequence containing pairs (n, x), where *n*s are consecutive indices of base, and xs are the elements of base.
+`xEnumerate<C: CollectionType>(base: C) -> LazySequence<Zip2<Range<C.Index>, C>>` | Return a LazySequence containing pairs (n, x), where *n*s are consecutive indices of base, and xs are the elements of base.
 
 This function is similar to the standard `enumerate()`, but the indices returned are the indices of the underlying sequence. (`enumerate()` returns `Int`s, starting at 0)
 
 
 Function  | Description
 ------------- | -------------
-find<C : CollectionType>(domain: C, predicate: C.Generator.Element -> Bool) -> C.Index? | Returns the first index where a value satisfies a predicate or nil if one is not found.
-findMany<C : CollectionType where C.Generator.Element : Equatable>(domain: C, element: C.Generator.Element) -> LazySequence<FilterSequenceView<Range<C.Index>>> | returns indices of elements that equal the element given
-findMany<C : CollectionType>(domain: C, include: C.Generator.Element -> Bool) -> LazySequence<FilterSequenceView<Range<C.Index>>> | Returns the indices of elements that satisfy the include closure.
+`find<C : CollectionType>(domain: C, predicate: C.Generator.Element -> Bool) -> C.Index?` | Returns the first index where a value satisfies a predicate or nil if one is not found.
+`findMany<C : CollectionType where C.Generator.Element : Equatable>(domain: C, element: C.Generator.Element) -> LazySequence<FilterSequenceView<Range<C.Index>>>` | returns indices of elements that equal the element given
+`findMany<C : CollectionType>(domain: C, include: C.Generator.Element -> Bool) -> LazySequence<FilterSequenceView<Range<C.Index>>>` | Returns the indices of elements that satisfy the include closure.
 
 These work the same as the standard `find()` function, except they can take a closure, and can return multiple indices.
