@@ -33,9 +33,7 @@ Returns the first index where a value satisfies a predicate or nil if one is not
 
 func find
   <C : CollectionType>(domain: C, predicate: C.Generator.Element -> Bool) -> C.Index? {
-    for (index, value) in xEnumerate(domain) {
-      if predicate(value) { return index }
-    }
+    for i in indices(domain) { if predicate(domain[i]) { return i } }
     return nil
 }
 /**
@@ -44,8 +42,11 @@ Returns the indices of elements that satisfy a predicate.
 
 func findMany
   <C : CollectionType>(domain: C, predicate: C.Generator.Element -> Bool)
-  -> LazySequence<MapSequenceView<FilterSequenceView<GeneratorOf<(C.Index, C.Generator.Element)>>, C.Index>> {
-    
-    return xEnumerate(domain).filter{predicate($1)}.map{$0.0}
-    
+  -> LazySequence<GeneratorOf<C.Index>> {
+    var inds = indices(domain).generate()
+    var ind: C.Index?
+    return lazy( GeneratorOf {
+      do {ind = inds.next()} while ind.map{!predicate(domain[$0])} ?? false
+      return ind
+      } )
 }

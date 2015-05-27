@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		709AE4301B162E6600090E35 /* FunkySwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE42F1B162E6600090E35 /* FunkySwiftTests.swift */; };
 		709AE45A1B162F6500090E35 /* FunkySwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 709AE4581B162F3600090E35 /* FunkySwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		709AE45B1B162F6600090E35 /* FunkySwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 709AE4581B162F3600090E35 /* FunkySwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		709AE45D1B16315100090E35 /* FunkySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE45C1B16315100090E35 /* FunkySwift.swift */; };
@@ -65,10 +64,10 @@
 		709AE4621B1632E800090E35 /* LazySequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazySequence.swift; sourceTree = "<group>"; };
 		709AE4631B1632E800090E35 /* RangesAndIntervals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangesAndIntervals.swift; sourceTree = "<group>"; };
 		709AE4641B1632E800090E35 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		709AE4821B1639A900090E35 /* FunkySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FunkySwift.framework; path = "/Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug-iphoneos/FunkySwift.framework"; sourceTree = "<absolute>"; };
-		709AE4831B1639A900090E35 /* FunkySwiftTests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "FunkySwiftTests iOS.xctest"; path = "/Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug-iphoneos/FunkySwiftTests iOS.xctest"; sourceTree = "<absolute>"; };
-		709AE4841B1639A900090E35 /* FunkySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FunkySwift.framework; path = /Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug/FunkySwift.framework; sourceTree = "<absolute>"; };
-		709AE4851B1639A900090E35 /* FunkySwift OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "FunkySwift OSXTests.xctest"; path = "/Users/oisinkidney/Desktop/Swift/FunkySwift/build/Debug/FunkySwift OSXTests.xctest"; sourceTree = "<absolute>"; };
+		709AE4881B163E2B00090E35 /* FunkySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FunkySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		709AE4891B163E2B00090E35 /* FunkySwiftTests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FunkySwiftTests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		709AE48A1B163E2B00090E35 /* FunkySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FunkySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		709AE48B1B163E2B00090E35 /* FunkySwift OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FunkySwift OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +107,10 @@
 			children = (
 				709AE42C1B162E6600090E35 /* FunkySwiftTests */,
 				709AE4571B162F3600090E35 /* Source */,
+				709AE4881B163E2B00090E35 /* FunkySwift.framework */,
+				709AE4891B163E2B00090E35 /* FunkySwiftTests iOS.xctest */,
+				709AE48A1B163E2B00090E35 /* FunkySwift.framework */,
+				709AE48B1B163E2B00090E35 /* FunkySwift OSXTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,7 +175,7 @@
 			);
 			name = "FunkySwift iOS";
 			productName = FunkySwift;
-			productReference = 709AE4821B1639A900090E35 /* FunkySwift.framework */;
+			productReference = 709AE4881B163E2B00090E35 /* FunkySwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		709AE4271B162E6600090E35 /* FunkySwiftTests iOS */ = {
@@ -190,7 +193,7 @@
 			);
 			name = "FunkySwiftTests iOS";
 			productName = FunkySwiftTests;
-			productReference = 709AE4831B1639A900090E35 /* FunkySwiftTests iOS.xctest */;
+			productReference = 709AE4891B163E2B00090E35 /* FunkySwiftTests iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		709AE43D1B162EB400090E35 /* FunkySwift OSX */ = {
@@ -208,7 +211,7 @@
 			);
 			name = "FunkySwift OSX";
 			productName = "FunkySwift OSX";
-			productReference = 709AE4841B1639A900090E35 /* FunkySwift.framework */;
+			productReference = 709AE48A1B163E2B00090E35 /* FunkySwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		709AE4471B162EB400090E35 /* FunkySwift OSXTests */ = {
@@ -226,7 +229,7 @@
 			);
 			name = "FunkySwift OSXTests";
 			productName = "FunkySwift OSXTests";
-			productReference = 709AE4851B1639A900090E35 /* FunkySwift OSXTests.xctest */;
+			productReference = 709AE48B1B163E2B00090E35 /* FunkySwift OSXTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -323,7 +326,6 @@
 			files = (
 				709AE47F1B16372500090E35 /* FunkySwift.swift in Sources */,
 				709AE47D1B16372100090E35 /* String.swift in Sources */,
-				709AE4301B162E6600090E35 /* FunkySwiftTests.swift in Sources */,
 				709AE47B1B16371D00090E35 /* RangesAndIntervals.swift in Sources */,
 				709AE4751B16370000090E35 /* Array.swift in Sources */,
 				709AE4791B16370600090E35 /* LazySequence.swift in Sources */,
