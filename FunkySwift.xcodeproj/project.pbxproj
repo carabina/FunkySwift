@@ -34,6 +34,8 @@
 		709AE47F1B16372500090E35 /* FunkySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE45C1B16315100090E35 /* FunkySwift.swift */; };
 		709AE4801B16372700090E35 /* FunkySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE45C1B16315100090E35 /* FunkySwift.swift */; };
 		709AE4811B16376D00090E35 /* FunkySwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE42F1B162E6600090E35 /* FunkySwiftTests.swift */; };
+		709AE48D1B16510600090E35 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE48C1B16510600090E35 /* Int.swift */; };
+		709AE48E1B16510600090E35 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE48C1B16510600090E35 /* Int.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,7 @@
 		709AE4891B163E2B00090E35 /* FunkySwiftTests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FunkySwiftTests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		709AE48A1B163E2B00090E35 /* FunkySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FunkySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		709AE48B1B163E2B00090E35 /* FunkySwift OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FunkySwift OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		709AE48C1B16510600090E35 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +133,7 @@
 				709AE4611B1632E800090E35 /* CollectionType.swift */,
 				709AE4621B1632E800090E35 /* LazySequence.swift */,
 				709AE4631B1632E800090E35 /* RangesAndIntervals.swift */,
+				709AE48C1B16510600090E35 /* Int.swift */,
 				709AE4641B1632E800090E35 /* String.swift */,
 				709AE45C1B16315100090E35 /* FunkySwift.swift */,
 				709AE4581B162F3600090E35 /* FunkySwift.h */,
@@ -314,6 +318,7 @@
 				709AE46D1B1632E800090E35 /* String.swift in Sources */,
 				709AE45D1B16315100090E35 /* FunkySwift.swift in Sources */,
 				709AE46B1B1632E800090E35 /* RangesAndIntervals.swift in Sources */,
+				709AE48D1B16510600090E35 /* Int.swift in Sources */,
 				709AE4651B1632E800090E35 /* Array.swift in Sources */,
 				709AE4691B1632E800090E35 /* LazySequence.swift in Sources */,
 				709AE4671B1632E800090E35 /* CollectionType.swift in Sources */,
@@ -340,6 +345,7 @@
 				709AE46E1B1632E800090E35 /* String.swift in Sources */,
 				709AE45E1B16315100090E35 /* FunkySwift.swift in Sources */,
 				709AE46C1B1632E800090E35 /* RangesAndIntervals.swift in Sources */,
+				709AE48E1B16510600090E35 /* Int.swift in Sources */,
 				709AE4661B1632E800090E35 /* Array.swift in Sources */,
 				709AE46A1B1632E800090E35 /* LazySequence.swift in Sources */,
 				709AE4681B1632E800090E35 /* CollectionType.swift in Sources */,
