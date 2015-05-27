@@ -144,7 +144,7 @@ extension LazySequence {
   }
   
   /**
-  Similar to the reduce() function, but produces a LazySequence of successive accumulating values
+  Similar to the reduce() function, but produces a LazySequence of successive accumulating values, where the initial value is taken to be the first value in the sequence
   
   :param: combine a closure which combines the first element in the list with the second, and then subsequently combines each element in the list with whatever it returned last
   :returns: a LazySequence of whatever the combine closure returns
@@ -160,7 +160,7 @@ extension LazySequence {
   }
   
   /**
-  Returns a LazySequence of self without repititions, according to the isEqual closure. (the non-method function is much faster)
+  Returns a LazySequence of self without repetitions, according to the isEqual closure. (the non-method function is much faster)
   
   :param: isEqual takes two arguments, should return true if they are equivalent, or false if they are not
   :returns: a LazySequence of unique elements
@@ -184,7 +184,7 @@ extension LazySequence {
   }
   
   /**
-  an endless repitition of self
+  an endless repetition of self
   */
   
   func cycle() -> LazySequence<GeneratorOf<S.Generator.Element>> {

@@ -69,7 +69,7 @@ Function  | Description
 ```nextLexPerm(isOrderedBefore: (T, T) -> Bool) -> [T]?```  | Mutates self to the next lexicographical permutation (if it exists), and then returns self (or nil if there is no next permutation)
 ```lexPermsOf(isOrderedBefore: (T, T) -> Bool) -> LazySequence<GeneratorOf<[T]>>``` | Returns a lazy generator of subsequent lexicographical permutation of self
 
-These functions generate the following permutation of self, according to lexicographical ordering, defined by the closure. [(The algorithm)](https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order) There is a non-method function (in utilities) that only accepts orderable arrays.
+These functions generate the following permutation of self, according to lexicographical ordering, defined by the closure. [(The algorithm)](https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order) There is a non-method function (in utilities) that only accepts order-able arrays.
 
 ```swift
 let ar = [1, 2, 3]
@@ -98,6 +98,28 @@ Function  | Description
 
 
 ## LazySequence ##
+
+Function  | Description
+------------- | -------------
+first() -> S.Generator.Element? | Returns the first element of the sequence (if it is present)
+take(n: Int) -> LazySequence<GeneratorOf<S.Generator.Element>> | The first n elements of the sequence
+takeWhile(condition: S.Generator.Element -> Bool) -> LazySequence<GeneratorOf<S.Generator.Element>> | elements of the sequence until the condition returns false.
+takeAfter(condition: S.Generator.Element -> Bool) -> LazySequence<SequenceOf<S.Generator.Element>> | elements of the sequence after the first element that returns true for a condition.
+drop(n: Int) -> LazySequence<SequenceOf<S.Generator.Element>> | elements after the first n elements in a sequence
+dropWhile(condition: S.Generator.Element -> Bool) -> LazySequence<GeneratorOf<S.Generator.Element>> | A sequence with the first elements that return true for the condition dropped.
+dropFirst() -> LazySequence<SequenceOf<S.Generator.Element>> | elements after the first element in a sequence
+dropLast() -> LazySequence<GeneratorOf<S.Generator.Element>> | Return elements before the last element in self (very very slowly)
+reduce<U>(initial: U, combine: (U, S.Generator.Element) -> U) -> U | Return the result of repeatedly calling combine with an accumulated value initialised to initial and each element of sequence, in turn.
+reduce(combine: (S.Generator.Element, S.Generator.Element) -> S.Generator.Element) -> S.Generator.Element? | Return the result of repeatedly calling combine with an accumulated value initialised to initial and each element of sequence, in turn. The initial value is taken to be the first element of the sequence.
+scan<U>(initial: U, combine: (U, S.Generator.Element) -> U) -> LazySequence<GeneratorOf<U>> | Similar to the reduce() function, but produces a LazySequence of successive accumulating values
+scan(combine: (S.Generator.Element, S.Generator.Element) -> S.Generator.Element) -> LazySequence<GeneratorOf<S.Generator.Element>> | Similar to the reduce() function, but produces a LazySequence of successive accumulating values, where the initial value is taken to be the first value in the sequence
+uniques (isEqual: (S.Generator.Element, S.Generator.Element) -> Bool) -> LazySequence<FilterSequenceView<S>> | Returns a LazySequence of self without repetitions, according to the isEqual closure. (the non-method function is much faster)
+cycle() -> LazySequence<GeneratorOf<S.Generator.Element>> | an endless repetition of self
+cons<T : SequenceType where T.Generator.Element == S.Generator.Element> (with: T) -> LazySequence<GeneratorOf<S.Generator.Element>> | Constructs a sequence with a new sequence at the beginning
+extend<T : SequenceType where T.Generator.Element == S.Generator.Element>(with: T) -> LazySequence<GeneratorOf<S.Generator.Element>> | Constructs a sequence with a new sequence at the end
+cons(element: S.Generator.Element) -> LazySequence<GeneratorOf<S.Generator.Element>> | Constructs a sequence with a new element at the beginning
+append(element: S.Generator.Element) -> LazySequence<GeneratorOf<S.Generator.Element>> | Constructs a sequence with a new element at the end
+
 ## Int ##
 ## RangesAndIntervals ##
 # Utilities #
