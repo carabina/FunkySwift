@@ -52,12 +52,11 @@ returns self randomly shuffled, via the Fisher-Yates shuffle
 ```swift
 mutating func nextLexPerm(isOrderedBefore: (T, T) -> Bool) -> [T]?
 ```
-```swift
-mutating func nextLexPerm(isOrderedBefore: (T, T) -> Bool) -> [T]?
-```
+Returns the next permutation of self in lexicographical order according to the closure isOrderedBefore
 ```swift
 func lexPermsOf(isOrderedBefore: (T, T) -> Bool) -> LazySequence<GeneratorOf<[T]>>
 ```
+Returns a lazy generator of permutations of self in lexicographical order according to the closure isOrderedBefore
 ```swift
 subscript(r: OpenEndedRange<Int>) -> ArraySlice<T>
 ```
