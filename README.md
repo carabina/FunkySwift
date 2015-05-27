@@ -19,29 +19,23 @@ FunkySwift is a library of extensions and tools for Swift. They're a bit functio
 ## Array ##
 
 ###Combinatorics###
-head | another
------------- | -------------
-one | two
 
-```swift func combinations(n: Int) -> [[T]] ``` | two
-Returns the combinations of a given length of self
+####Combinations####
+
 ```swift
-func permsWithRep(n: Int) -> [[T]]
+func combinations(n: Int) -> [[T]]
 ```
-Returns the permutations with repetition of a given length of self
-```swift
-func permsWithRep() -> [[T]]
-```
-Returns all the permutations with repetition of self
-```swift
-func perms() -> [[T]]
-```
-Returns all the permutations of self
-```swift
-func perms(n: Int) -> [[T]]
-```
-Returns all the permutations of a given length of self
-```swift
+Returns the combinations of a given length of self.
+
+####Permutations####
+Function  | Description
+------------- | -------------
+```permsWithRep(n: Int) -> [[T]]```  | Returns the permutations with repetition of a given length of self
+```permsWithRep() -> [[T]]```        | Returns all the permutations with repetition of self
+```perms() -> [[T]]```  | Returns all the permutations of self
+```perms(n: Int) -> [[T]]```  | Returns all the permutations of a given length of self
+
+
 func randomElement() -> T
 ```
 Returns a random element of self
