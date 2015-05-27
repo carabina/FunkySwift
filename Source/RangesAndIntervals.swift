@@ -34,19 +34,24 @@ prefix func ..<<I: ForwardIndexType>(rhs: I) -> OpenStartedRange<I> {
 }
 
 extension ClosedInterval {
-  
+  /**
+  Checks if one interval is contained entirely ion the other
+  */
   func contains(with: ClosedInterval<T>) -> Bool {
     return self.contains(with.start) && self.contains(with.end)
   }
-  
+  /**
+  returns the largest interval of which both ends are still inside at least one of the constituent intervals
+  */
   func span(with: ClosedInterval) -> ClosedInterval<T> {
     return ClosedInterval(min(self.start, with.start), max(self.end, with.end))
   }
-  
+  /**
+  returns an interval that is between two other intervals. If the intervals overlap, it will return an interval between the two ovelapping ends
+  */
   func between(with: ClosedInterval<T>) -> ClosedInterval<T> {
     return {$0 < $1 ? ClosedInterval($0, $1) : ClosedInterval($1, $0)} (max(self.start, with.start), min(self.end, with.end))
   }
-  
   func subtract(with: ClosedInterval<T>) -> ClosedInterval<T>? {
     
     switch (with.contains(self.start), with.contains(self.end)) {
