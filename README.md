@@ -22,10 +22,9 @@ FunkySwift is a library of extensions and tools for Swift. They're a bit functio
 
 ####Combinations####
 
-```swift
-func combinations(n: Int) -> [[T]]
-```
-Returns the combinations of a given length of self.
+Function  | Description
+------------- | -------------
+```combinations(n: Int) -> [[T]]```  | Returns the combinations of a given length of self.
 
 ####Permutations####
 Function  | Description
@@ -35,7 +34,7 @@ Function  | Description
 ```perms() -> [[T]]```  | Returns all the permutations of self
 ```perms(n: Int) -> [[T]]```  | Returns all the permutations of a given length of self
 
-
+```swift
 func randomElement() -> T
 ```
 Returns a random element of self
