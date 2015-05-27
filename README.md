@@ -223,7 +223,7 @@ Function  | Description
 These functions all return an array of strings. If the function is given the `startIndex` or the index before the `endIndex`, it will have an empty string in the array. It can take either `String.Index`s or `Int`s. (String.Index is faster (But then again, it's strings in Swift so it's gonna be slow))
 
 ```swift
-"hello".split(2)  	// ["he", "llo"]
+"hello".split(2)  	    // ["he", "llo"]
 "hello".split([2, 3]) 	// ["he", "l", "lo"]
 ```
 
