@@ -34,7 +34,6 @@ internal extension Array {
   
   :param: n length of the permutations
   :returns: an array of permutations
-  
   */
   func permsWithRep(n: Int) -> [[T]] {
     return Swift.reduce(1..<n, self.map{[$0]}) {

@@ -12,13 +12,24 @@ postfix operator ..< { }
 prefix operator ..< { }
 
 struct OpenEndedRange<I: ForwardIndexType> { let start: I }
+
+
 struct OpenStartedRange<I: ForwardIndexType> { let end: I }
+/**
+A range for one-ended slicing of slicable types, as by `Airspeed Velocity
+<http://airspeedvelocity.net/2015/05/02/spelling//>`_.
+*/
 
 postfix func ..<<I: ForwardIndexType>(lhs: I) -> OpenEndedRange<I> {
   return OpenEndedRange(start: lhs)
 }
+/**
+A range for one-ended slicing of slicable types, as by `Airspeed Velocity
+<http://airspeedvelocity.net/2015/05/02/spelling//>`_.
+*/
 
 prefix func ..<<I: ForwardIndexType>(rhs: I) -> OpenStartedRange<I> {
+  
   return OpenStartedRange(end: rhs)
 }
 
@@ -58,3 +69,11 @@ func + <T>(l: ClosedInterval<T>, r: ClosedInterval<T>) -> ClosedInterval<T> {
 func - <T>(l: ClosedInterval<T>, r: ClosedInterval<T>) -> ClosedInterval<T>? {
   return l.subtract(r)
 }
+
+
+
+
+
+
+
+
