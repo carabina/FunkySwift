@@ -1,6 +1,6 @@
 # FunkySwift
 
-FunkySwift is a library of extensions and tools for Swift. They're a bit functional, but only a bit.
+FunkySwift is a library of extensions and functional(ish) tools for Swift.
 
 ## Contents ##
 
