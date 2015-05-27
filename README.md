@@ -64,14 +64,21 @@ ar.shuffle()
 ar                    // [3, 1, 2]
 ```
 
-
-
 Function  | Description
 ------------- | -------------
-```nextLexPerm(isOrderedBefore: (T, T) -> Bool) -> [T]?```  | Returns the next lexicographical permutation of self
-```lexPermsOf(isOrderedBefore: (T, T) -> Bool) -> LazySequence<GeneratorOf<[T]>>``` | Returns a generator of subsequent lexicographical permutation of self
+```nextLexPerm(isOrderedBefore: (T, T) -> Bool) -> [T]?```  | Mutates self to the next lexicographical permutation (if it exists), and then returns self (or nil if there is no next permutation)
+```lexPermsOf(isOrderedBefore: (T, T) -> Bool) -> LazySequence<GeneratorOf<[T]>>``` | Returns a lazy generator of subsequent lexicographical permutation of self
 
 These functions generate the following permutation of self, according to lexicographical ordering, defined by the closure. [(The algorithm)](https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order) There is a non-method function (in utilities) that only accepts orderable arrays.
+
+```swift
+let ar = [1, 2, 3]
+ar.lexPermsOf(<).array  // [[1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
+
+var mutAr = [1, 2, 3]   // [1, 2, 3]
+mutAr.nextLexPerm(<)    // [1, 3, 2]
+mutAr                   // [1, 3, 2]
+```
 
 ####The Rest####
 
