@@ -34,20 +34,22 @@ Function  | Description
 ```perms(n: Int) -> [[T]]```  | Returns all the permutations of a given length of self
 ```perms() -> [[T]]```  | Returns all the permutations of self
 
-These functions return the permutations with and without repetitions of self. Permutations with repetition are achieved with ```map()``` nested in ```flatMap()```. Permutations without repetition are generated with a recursive implementation of Heap's algorithm.
+These functions return the permutations with and without repetitions of self. Permutations with repetition are generated with ```map()``` nested in ```flatMap()```. Permutations without repetition are generated with a recursive implementation of Heap's algorithm.
 
-```swift
-func randomElement() -> T
-```
-Returns a random element of self
-```swift
-mutating func shuffle()
-```
-randomly shuffles self, via the Fisher-Yates shuffle
-```swift
-func shuffled() -> [T]
-```
-returns self randomly shuffled, via the Fisher-Yates shuffle
+Function  | Description
+------------- | -------------
+```shuffle()``  | Randomly shuffles self
+```shuffled() -> [T]``` | Returns self randomly shuffled
+
+These functions randomly shuffle self, with the Fisher-Yates shuffle algorithm.
+
+Function  | Description
+------------- | -------------
+```nextLexPerm(isOrderedBefore: (T, T) -> Bool) -> [T]?``  | Returns the next lexicographical permutation of self
+```lexPermsOf(isOrderedBefore: (T, T) -> Bool) -> LazySequence<GeneratorOf<[T]>>``` | Returns a generator of subsequent lexicographical permutation of self
+
+These functions generate the following permutation of self, according to lexicographical ordering, defined by the closure. [(The algorithm)](https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order) There is a non-method function (in utilities) that only accepts order able arrays.
+
 ```swift
 mutating func nextLexPerm(isOrderedBefore: (T, T) -> Bool) -> [T]?
 ```
@@ -56,6 +58,10 @@ Returns the next permutation of self in lexicographical order according to the c
 func lexPermsOf(isOrderedBefore: (T, T) -> Bool) -> LazySequence<GeneratorOf<[T]>>
 ```
 Returns a lazy generator of permutations of self in lexicographical order according to the closure isOrderedBefore
+```swift
+func randomElement() -> T
+```
+Returns a random element of self
 ```swift
 subscript(r: OpenEndedRange<Int>) -> ArraySlice<T>
 ```
