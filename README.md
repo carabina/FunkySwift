@@ -180,7 +180,7 @@ nums.scan(+).array                      	// [3, 6, 10, 15]
 var i = 0
 let endlessNums = lazy(GeneratorOf{++i})	// 1, 2, 3, 4, 5, 6, 7, 8, 9...
 nums.scan(0, combine: +).take(5).array 		// [1, 3, 6, 10, 15]
-nums.scan(+).take(5).array 			// [3, 6, 10, 15]
+nums.scan(+).take(5).array                      // [3, 6, 10, 15]
 ```
 ### Making Sequences ###
 Function  | Description
