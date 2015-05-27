@@ -47,11 +47,15 @@ extension ClosedInterval {
     return ClosedInterval(min(self.start, with.start), max(self.end, with.end))
   }
   /**
-  returns an interval that is between two other intervals. If the intervals overlap, it will return an interval between the two ovelapping ends
+  returns an interval that is between two other intervals. If the intervals overlap, it will return an interval between the two overlapping ends
   */
   func between(with: ClosedInterval<T>) -> ClosedInterval<T> {
     return {$0 < $1 ? ClosedInterval($0, $1) : ClosedInterval($1, $0)} (max(self.start, with.start), min(self.end, with.end))
   }
+  /**
+  returns self where no part of self except either the end or start is contained in the interval "with"
+  */
+  
   func subtract(with: ClosedInterval<T>) -> ClosedInterval<T>? {
     
     switch (with.contains(self.start), with.contains(self.end)) {

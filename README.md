@@ -90,7 +90,7 @@ Function  | Description
 An implementation of open ranges for arrays. 
 ```swift
 let ar = [0, 1, 2, 3, 4]
-let split = ar[2..<] // [2, 3, 4]
+let split = ar[2..<] 		// [2, 3, 4]
 ```
 Function  | Description
 ------------- | -------------
@@ -110,7 +110,7 @@ This function returns the first elements of a lazy sequence, without evaluating 
 
 ```swift
 var i = 0
-let endless = lazy(GeneratorOf{++i})		// 1, 2, 3, 4, 5, 6, 7, 8, 9...
+let endless = lazy(GeneratorOf{++i})            // 1, 2, 3, 4, 5, 6, 7, 8, 9...
 endless.takeFirst()                           	// 1 (optional)
 i = 0
 endless.take(3).array                         	// [1, 2, 3]
@@ -226,4 +226,57 @@ These functions all return an array of strings. If the function is given the `st
 ```
 
 ## RangesAndIntervals ##
+
+### Open-Ended Ranges ###
+
+These functions and operators allow one-ended slicing, as by [Airspeed Velocity](http://airspeedvelocity.net/2015/05/02/spelling//) The operators for these are `..<`. 
+
+### Closed Intervals ###
+Function  | Description
+------------- | -------------
+contains(with: ClosedInterval<T>) -> Bool | Checks if one interval is contained entirely ion the other
+span(with: ClosedInterval) -> ClosedInterval<T> | returns the largest interval of which both ends are still inside at least one of the constituent intervals
+between(with: ClosedInterval<T>) -> ClosedInterval<T> | returns an interval that is between two other intervals. If the intervals overlap, it will return an interval between the two overlapping ends
+subtract(with: ClosedInterval<T>) -> ClosedInterval<T>? | returns self where no part of self except either the end or start is contained in the interval "with"
+
+These functions operate on `ClosedInterval`s.
+
+Operator  | Equivalent Function
+------------- | -------------
+`+` | `left.span(right)`
+`-` | `left.subtract(right)`
+
 # Utilities #
+Function  | Description
+------------- | -------------
+uniques<S: SequenceType where S.Generator.Element: Hashable> (seq: S) -> LazySequence<FilterSequenceView<S>> | Returns a LazySequence of a sequence without repetitions, (much faster than the method on LazySequence, seeing as it uses Sets)
+
+This is similar to the method on `LazySequence`, but since it uses `Set`s, its arguments need to be `Hashable`, and it is much faster.
+
+Function  | Description
+------------- | -------------
+all<S: SequenceType>(seq: S, condition: S.Generator.Element -> Bool) -> Bool | Checks if all elements in seq satisfy the condition
+
+This runs a closure over all elements of a sequence, and returns true if all of the elements return true.
+
+Function  | Description
+------------- | -------------
+nextLexPerm<T: Comparable>(inout a: [T]) -> [T]? | Returns the next permutation of an array in lexicographical order
+lexPermsOf<T: Comparable>(var a: [T]) -> LazySequence<GeneratorOf<[T]>> | Returns a Generator of permutations of a, in lexicographical order
+
+These work the same as the methods on `Array`, but they don't need the `isOrderedBefore` closure, as their arguments need to be comparable.
+
+Function  | Description
+------------- | -------------
+xEnumerate<C: CollectionType>(base: C) -> LazySequence<Zip2<Range<C.Index>, C>> | Return a LazySequence containing pairs (n, x), where *n*s are consecutive indices of base, and xs are the elements of base.
+
+This function is similar to the standard `enumerate()`, but the indices returned are the indices of the underlying sequence. (`enumerate()` returns `Int`s, starting at 0)
+
+
+Function  | Description
+------------- | -------------
+find<C : CollectionType>(domain: C, predicate: C.Generator.Element -> Bool) -> C.Index? | Returns the first index where a value satisfies a predicate or nil if one is not found.
+findMany<C : CollectionType where C.Generator.Element : Equatable>(domain: C, element: C.Generator.Element) -> LazySequence<FilterSequenceView<Range<C.Index>>> | returns indices of elements that equal the element given
+findMany<C : CollectionType>(domain: C, include: C.Generator.Element -> Bool) -> LazySequence<FilterSequenceView<Range<C.Index>>> | Returns the indices of elements that satisfy the include closure.
+
+These work the same as the standard `find()` function, except they can take a closure, and can return multiple indices.

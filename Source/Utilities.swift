@@ -70,8 +70,6 @@ func lexPermsOf<T: Comparable>(var a: [T]) -> LazySequence<GeneratorOf<[T]>> {
   return lazy( GeneratorOf{ nextLexPerm(&a) })
 }
 
-import Foundation
-
 /**
 Return a LazySequence containing pairs (n, x), where *n*s are consecutive indices of base, and xs are the elements of base.
 */
@@ -101,3 +99,20 @@ func findMany
     return lazy(indices(domain)).filter{include(domain[$0])}
     
 }
+
+/**
+Returns the indices of elements that match the element.
+
+:param: element an element to match to elements in the domain
+:param: domain the CollectionType to be searched
+*/
+
+func findMany
+  <C : CollectionType where C.Generator.Element : Equatable>(domain: C, element: C.Generator.Element)
+  -> LazySequence<FilterSequenceView<Range<C.Index>>>{
+    
+    return lazy(indices(domain)).filter{domain[$0] == element}
+    
+}
+
+
