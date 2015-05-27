@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		703366EB1B165F27007D4821 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703366EA1B165F27007D4821 /* Utilities.swift */; };
+		703366EC1B165F27007D4821 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703366EA1B165F27007D4821 /* Utilities.swift */; };
+		703366ED1B165F27007D4821 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703366EA1B165F27007D4821 /* Utilities.swift */; };
+		703366EE1B165F27007D4821 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703366EA1B165F27007D4821 /* Utilities.swift */; };
 		709AE45A1B162F6500090E35 /* FunkySwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 709AE4581B162F3600090E35 /* FunkySwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		709AE45B1B162F6600090E35 /* FunkySwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 709AE4581B162F3600090E35 /* FunkySwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		709AE45D1B16315100090E35 /* FunkySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE45C1B16315100090E35 /* FunkySwift.swift */; };
 		709AE45E1B16315100090E35 /* FunkySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE45C1B16315100090E35 /* FunkySwift.swift */; };
 		709AE4651B1632E800090E35 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4601B1632E800090E35 /* Array.swift */; };
 		709AE4661B1632E800090E35 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4601B1632E800090E35 /* Array.swift */; };
-		709AE4671B1632E800090E35 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4611B1632E800090E35 /* CollectionType.swift */; };
-		709AE4681B1632E800090E35 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4611B1632E800090E35 /* CollectionType.swift */; };
 		709AE4691B1632E800090E35 /* LazySequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4621B1632E800090E35 /* LazySequence.swift */; };
 		709AE46A1B1632E800090E35 /* LazySequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4621B1632E800090E35 /* LazySequence.swift */; };
 		709AE46B1B1632E800090E35 /* RangesAndIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4631B1632E800090E35 /* RangesAndIntervals.swift */; };
@@ -23,8 +25,6 @@
 		709AE46E1B1632E800090E35 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4641B1632E800090E35 /* String.swift */; };
 		709AE4751B16370000090E35 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4601B1632E800090E35 /* Array.swift */; };
 		709AE4761B16370100090E35 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4601B1632E800090E35 /* Array.swift */; };
-		709AE4771B16370300090E35 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4611B1632E800090E35 /* CollectionType.swift */; };
-		709AE4781B16370400090E35 /* CollectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4611B1632E800090E35 /* CollectionType.swift */; };
 		709AE4791B16370600090E35 /* LazySequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4621B1632E800090E35 /* LazySequence.swift */; };
 		709AE47A1B16370700090E35 /* LazySequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4621B1632E800090E35 /* LazySequence.swift */; };
 		709AE47B1B16371D00090E35 /* RangesAndIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709AE4631B1632E800090E35 /* RangesAndIntervals.swift */; };
@@ -56,13 +56,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		703366EA1B165F27007D4821 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		709AE42E1B162E6600090E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		709AE42F1B162E6600090E35 /* FunkySwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FunkySwiftTests.swift; sourceTree = "<group>"; };
 		709AE4581B162F3600090E35 /* FunkySwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunkySwift.h; sourceTree = "<group>"; };
 		709AE4591B162F3600090E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		709AE45C1B16315100090E35 /* FunkySwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunkySwift.swift; sourceTree = "<group>"; };
 		709AE4601B1632E800090E35 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
-		709AE4611B1632E800090E35 /* CollectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionType.swift; sourceTree = "<group>"; };
 		709AE4621B1632E800090E35 /* LazySequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazySequence.swift; sourceTree = "<group>"; };
 		709AE4631B1632E800090E35 /* RangesAndIntervals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangesAndIntervals.swift; sourceTree = "<group>"; };
 		709AE4641B1632E800090E35 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -130,11 +130,11 @@
 			isa = PBXGroup;
 			children = (
 				709AE4601B1632E800090E35 /* Array.swift */,
-				709AE4611B1632E800090E35 /* CollectionType.swift */,
 				709AE4621B1632E800090E35 /* LazySequence.swift */,
 				709AE4631B1632E800090E35 /* RangesAndIntervals.swift */,
 				709AE48C1B16510600090E35 /* Int.swift */,
 				709AE4641B1632E800090E35 /* String.swift */,
+				703366EA1B165F27007D4821 /* Utilities.swift */,
 				709AE45C1B16315100090E35 /* FunkySwift.swift */,
 				709AE4581B162F3600090E35 /* FunkySwift.h */,
 				709AE4591B162F3600090E35 /* Info.plist */,
@@ -321,7 +321,7 @@
 				709AE48D1B16510600090E35 /* Int.swift in Sources */,
 				709AE4651B1632E800090E35 /* Array.swift in Sources */,
 				709AE4691B1632E800090E35 /* LazySequence.swift in Sources */,
-				709AE4671B1632E800090E35 /* CollectionType.swift in Sources */,
+				703366EB1B165F27007D4821 /* Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,10 +331,10 @@
 			files = (
 				709AE47F1B16372500090E35 /* FunkySwift.swift in Sources */,
 				709AE47D1B16372100090E35 /* String.swift in Sources */,
+				703366EC1B165F27007D4821 /* Utilities.swift in Sources */,
 				709AE47B1B16371D00090E35 /* RangesAndIntervals.swift in Sources */,
 				709AE4751B16370000090E35 /* Array.swift in Sources */,
 				709AE4791B16370600090E35 /* LazySequence.swift in Sources */,
-				709AE4771B16370300090E35 /* CollectionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +348,7 @@
 				709AE48E1B16510600090E35 /* Int.swift in Sources */,
 				709AE4661B1632E800090E35 /* Array.swift in Sources */,
 				709AE46A1B1632E800090E35 /* LazySequence.swift in Sources */,
-				709AE4681B1632E800090E35 /* CollectionType.swift in Sources */,
+				703366ED1B165F27007D4821 /* Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +362,7 @@
 				709AE4761B16370100090E35 /* Array.swift in Sources */,
 				709AE47A1B16370700090E35 /* LazySequence.swift in Sources */,
 				709AE4811B16376D00090E35 /* FunkySwiftTests.swift in Sources */,
-				709AE4781B16370400090E35 /* CollectionType.swift in Sources */,
+				703366EE1B165F27007D4821 /* Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

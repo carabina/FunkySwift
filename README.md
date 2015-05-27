@@ -1,25 +1,14 @@
 # FunkySwift
 
-FunkySwift is a library of extensions and tools for Swift, with a conservative, functional bent.
+FunkySwift is a library of extensions and tools for Swift. They're a bit functional, but only a bit.
 
-##Array
-combinations
-permsWithRep
-perms
-randomElement
-shuffle
-shuffled
-nextLexPerm
-lexPermsOf
-uniques
-all
+## Contents ##
 
-##CollectionType
-xEnumerate
-find
-findMany
+- [FunkySwift extensions](#extensions)
+	- [Array](#array)
+	- [LazySequence](#array)
+	- [Int](#int)
+	- [String](#string)
+	- [RangesAndIntervals](#range)
 
-##Int
-##LazySequence
-##RangesAndINtervals
-##String
+- [Utilities](#utilities)
