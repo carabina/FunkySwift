@@ -30,7 +30,7 @@ internal extension Array {
   }
   
   /**
-  Returns the permutations with repitition of a given length of self
+  Returns the permutations with repetition of a given length of self
   
   :param: n length of the permutations
   :returns: an array of permutations
@@ -45,7 +45,7 @@ internal extension Array {
   }
   
   /**
-  Returns all the permutations with repitition of self
+  Returns all the permutations with repetition of self
   */
   
   func permsWithRep() -> [[T]] { return permsWithRep(self.count) }
@@ -88,7 +88,7 @@ internal extension Array {
   }
   
   /**
-  randomly shuffles self, via the fisher-yates shuffle
+  randomly shuffles self, via the Fisher-Yates shuffle
   */
   
   mutating func shuffle() {
@@ -98,7 +98,7 @@ internal extension Array {
   }
   
   /**
-  returns self randomly shuffled, via the fisher-yates shuffle
+  returns self randomly shuffled, via the Fisher-Yates shuffle
   */
   
   func shuffled() -> [T] {
