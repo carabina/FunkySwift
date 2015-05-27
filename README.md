@@ -99,27 +99,131 @@ Function  | Description
 
 ## LazySequence ##
 
+### Lazy Slicing ###
+
 Function  | Description
 ------------- | -------------
-first() -> S.Generator.Element? | Returns the first element of the sequence (if it is present)
+takeFirst() -> S.Generator.Element? | Returns the first element of the sequence (if it is present)
 take(n: Int) -> LazySequence<GeneratorOf<S.Generator.Element>> | The first n elements of the sequence
-takeWhile(condition: S.Generator.Element -> Bool) -> LazySequence<GeneratorOf<S.Generator.Element>> | elements of the sequence until the condition returns false.
-takeAfter(condition: S.Generator.Element -> Bool) -> LazySequence<SequenceOf<S.Generator.Element>> | elements of the sequence after the first element that returns true for a condition.
-drop(n: Int) -> LazySequence<SequenceOf<S.Generator.Element>> | elements after the first n elements in a sequence
-dropWhile(condition: S.Generator.Element -> Bool) -> LazySequence<GeneratorOf<S.Generator.Element>> | A sequence with the first elements that return true for the condition dropped.
+
+This function returns the first elements of a lazy sequence, without evaluating the whole sequence. If n is larger than the sequence being taken from, the entire sequence will be returned.
+
+```swift
+var i = 0
+let endless = lazy(GeneratorOf{++i})		// 1, 2, 3, 4, 5, 6, 7, 8, 9...
+endless.takeFirst()                           	// 1 (optional)
+i = 0
+endless.take(3).array                         	// [1, 2, 3]
+```
+
+Function  | Description
+------------- | -------------
 dropFirst() -> LazySequence<SequenceOf<S.Generator.Element>> | elements after the first element in a sequence
+drop(n: Int) -> LazySequence<SequenceOf<S.Generator.Element>> | elements after the first n elements in a sequence
+
+These drop a given number of elements from a lazy sequence. Although the sequences are still evaluated lazily, the dropped elements all must be stepped through, so the complexity is O(*n*) where *n* is the number of elements dropped.
+
+```swift
+let nums = LazySequence([1, 2, 3, 4, 5])
+nums.drop(3).array                       // [4, 5]
+```
+
+Function  | Description
+------------- | -------------
 dropLast() -> LazySequence<GeneratorOf<S.Generator.Element>> | Return elements before the last element in self (very very slowly)
+
+This is slow. Don't do this (ya numpty). If you start to do this, it's `.array` time.
+
+### Conditional Lazy Slicing ###
+
+Function  | Description
+------------- | -------------
+takeWhile(condition: S.Generator.Element -> Bool) -> LazySequence<GeneratorOf<S.Generator.Element>> | elements of the sequence until the condition returns false.
+dropWhile(condition: S.Generator.Element -> Bool) -> LazySequence<GeneratorOf<S.Generator.Element>> | A sequence with the first elements that return true for the condition dropped.
+takeAfter(condition: S.Generator.Element -> Bool) -> LazySequence<SequenceOf<S.Generator.Element>> | elements of the sequence after the first element that returns true for a condition.
+
+These functions drop and take from sequences on the basis of a condition. `takeWhile()` takes all of the elements up to and not including an element that returns false for the condition. `dropWhile()` continuously drops elements until an element returns false for the condition. `takeAfter()` is similar to `dropWhile()`, but with a couple differences: it drops elements that pass, rather than fail the condition, and it does not include the first element that returns true for the condition.
+
+```swift
+let nums = LazySequence([1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+nums.takeWhile{$0 < 5}.array	// [1, 2, 3, 4]
+nums.dropWhile{$0 < 5}.array	// [5, 6, 7, 8, 9]
+nums.takeAfter{$0 >= 5}.array	// [6, 7, 8, 9]
+```
+
+### Higher-Order ###
+
+Function  | Description
+------------- | -------------
 reduce<U>(initial: U, combine: (U, S.Generator.Element) -> U) -> U | Return the result of repeatedly calling combine with an accumulated value initialised to initial and each element of sequence, in turn.
-reduce(combine: (S.Generator.Element, S.Generator.Element) -> S.Generator.Element) -> S.Generator.Element? | Return the result of repeatedly calling combine with an accumulated value initialised to initial and each element of sequence, in turn. The initial value is taken to be the first element of the sequence.
+reduce(combine: (S.Generator.Element, S.Generator.Element) -> S.Generator.Element) -> S.Generator.Element? | Same as above, except the initial value is taken to be the first element of the sequence.
+
+The first function is just the same as the standard library `reduce()`, whereas the second doesn't require ar initial value: it uses the first value of the sequence.
+
+```swift
+let nums = LazySequence([1, 2, 3, 4, 5])
+nums.reduce(+) // 15
+```
+Function  | Description
+------------- | -------------
 scan<U>(initial: U, combine: (U, S.Generator.Element) -> U) -> LazySequence<GeneratorOf<U>> | Similar to the reduce() function, but produces a LazySequence of successive accumulating values
-scan(combine: (S.Generator.Element, S.Generator.Element) -> S.Generator.Element) -> LazySequence<GeneratorOf<S.Generator.Element>> | Similar to the reduce() function, but produces a LazySequence of successive accumulating values, where the initial value is taken to be the first value in the sequence
-uniques (isEqual: (S.Generator.Element, S.Generator.Element) -> Bool) -> LazySequence<FilterSequenceView<S>> | Returns a LazySequence of self without repetitions, according to the isEqual closure. (the non-method function is much faster)
+scan(combine: (S.Generator.Element, S.Generator.Element) -> S.Generator.Element) -> LazySequence<GeneratorOf<S.Generator.Element>> | Same as above, but the initial value is taken to be the first value in the sequence
+
+These functions are similar to `reduce()`. They repeatedly apply a `combine()` closure to an accumulator. Differently, though, they return a sequence of each successive accumulator. Again, similar to `reduce()`, the version without an initial value takes the first element of the sequence as the initial value. They can be evaluated lazily, and therefore used with endless lists.
+
+```swift
+let nums = LazySequence([1, 2, 3, 4, 5])
+nums.scan(0, combine: +).array          	// [1, 3, 6, 10, 15]
+nums.scan(+).array                      	// [3, 6, 10, 15]
+
+var i = 0
+let endlessNums = lazy(GeneratorOf{++i})	// 1, 2, 3, 4, 5, 6, 7, 8, 9...
+nums.scan(0, combine: +).take(5).array 		// [1, 3, 6, 10, 15]
+nums.scan(+).take(5).array 			// [3, 6, 10, 15]
+```
+### Making Sequences ###
+Function  | Description
+------------- | -------------
 cycle() -> LazySequence<GeneratorOf<S.Generator.Element>> | an endless repetition of self
+
+cycles a sequence (self) endlessly. 
+
+```swift
+LazySequence([1, 2, 3]).cycle() // 1, 2, 3, 1, 2, 3, 1, 2, 3...
+```
+Function  | Description
+------------- | -------------
 cons<T : SequenceType where T.Generator.Element == S.Generator.Element> (with: T) -> LazySequence<GeneratorOf<S.Generator.Element>> | Constructs a sequence with a new sequence at the beginning
 extend<T : SequenceType where T.Generator.Element == S.Generator.Element>(with: T) -> LazySequence<GeneratorOf<S.Generator.Element>> | Constructs a sequence with a new sequence at the end
 cons(element: S.Generator.Element) -> LazySequence<GeneratorOf<S.Generator.Element>> | Constructs a sequence with a new element at the beginning
 append(element: S.Generator.Element) -> LazySequence<GeneratorOf<S.Generator.Element>> | Constructs a sequence with a new element at the end
 
+These are not fast. Sequences in Swift aren't lists: these aren't really `cons()` functions.
+
+uniques (isEqual: (S.Generator.Element, S.Generator.Element) -> Bool) -> LazySequence<FilterSequenceView<S>> | Returns a LazySequence of self without repetitions, according to the isEqual closure. (the non-method function is much faster)
+
 ## Int ##
+Function  | Description
+------------- | -------------
+`isEven() -> Bool` | returns true if self is even
+`isOdd() -> Bool` | returns true if self is Odd
+
+
+## String ##
+Function  | Description
+------------- | -------------
+`split(ind: String.Index) -> [String]` | Splits a string at a given index
+`split(inds: [String.Index]) -> [String]` | Splits a string at given indices
+`split(ind: Int) -> [String]` | Splits a string at a given index
+`split(inds: [Int]) -> [String]` | Splits a string at given indices
+
+These functions all return an array of strings. If the function is given the `startIndex` or the index before the `endIndex`, it will have an empty string in the array. It can take either `String.Index`s or `Int`s. (String.Index is faster (But then again, it's strings in Swift so it's gonna be slow))
+
+```swift
+"hello".split(2)  	// ["he", "llo"]
+"hello".split([2, 3]) 	// ["he", "l", "lo"]
+```
+
 ## RangesAndIntervals ##
 # Utilities #

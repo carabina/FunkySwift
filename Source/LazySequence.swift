@@ -16,7 +16,7 @@ extension LazySequence {
   :returns: First element of the sequence if present
   */
   
-  func first()-> S.Generator.Element? {
+  func takeFirst()-> S.Generator.Element? {
     var g = self.generate()
     return g.next()
   }
@@ -127,7 +127,7 @@ extension LazySequence {
   */
   
   func reduce(combine: (S.Generator.Element, S.Generator.Element) -> S.Generator.Element) -> S.Generator.Element? {
-    return self.first().map{ Swift.reduce(self.dropFirst(), $0, combine) }
+    return self.takeFirst().map{ Swift.reduce(self.dropFirst(), $0, combine) }
   }
   
   /**
