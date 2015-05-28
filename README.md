@@ -159,7 +159,7 @@ Function  | Description
 `reduce<U>(initial: U, combine: (U, S.Generator.Element) -> U) -> U` | Return the result of repeatedly calling combine with an accumulated value initialised to initial and each element of sequence, in turn.
 `reduce(combine: (S.Generator.Element, S.Generator.Element) -> S.Generator.Element) -> S.Generator.Element?` | Same as above, except the initial value is taken to be the first element of the sequence.
 
-The first function is just the same as the standard library `reduce()`, whereas the second doesn't require ar initial value: it uses the first value of the sequence.
+The first function is just the same as the standard library `reduce()`, whereas the second doesn't require an initial value: it uses the first value of the sequence.
 
 ```swift
 let nums = LazySequence([1, 2, 3, 4, 5])
