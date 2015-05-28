@@ -142,7 +142,7 @@ Function  | Description
 `dropWhile(condition: S.Generator.Element -> Bool) -> LazySequence<GeneratorOf<S.Generator.Element>>` | A sequence with the first elements that return true for the condition dropped.
 `takeAfter(condition: S.Generator.Element -> Bool) -> LazySequence<SequenceOf<S.Generator.Element>>` | elements of the sequence after the first element that returns true for a condition.
 
-These functions drop and take from sequences on the basis of a condition. `takeWhile()` takes all of the elements up to and not including an element that returns false for the condition. `dropWhile()` continuously drops elements until an element returns false for the condition. `takeAfter()` is similar to `dropWhile()`, but with a couple differences: it drops elements that pass, rather than fail the condition, and it does not include the first element that returns true for the condition.
+These functions drop and take from sequences on the basis of a condition. `takeWhile()` takes all of the elements up to and not including an element that returns false for the condition. `dropWhile()` continuously drops elements until an element returns false for the condition. `takeAfter()` walks along the sequence, and once it finds an element that returns true for its closure, it returns the elements after it.
 
 ```swift
 let nums = LazySequence([1, 2, 3, 4, 5, 6, 7, 8, 9])
