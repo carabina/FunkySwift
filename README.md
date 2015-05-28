@@ -208,6 +208,12 @@ Function  | Description
 ## Int ##
 Function  | Description
 ------------- | -------------
+`gcd(var x: Int)` | mutates self to be the greatest common divisor of self and x
+
+This mutates self to the greatest common divisor of self and x, via the Euclidean Algorithm.
+
+Function  | Description
+------------- | -------------
 `isEven() -> Bool` | returns true if self is even
 `isOdd() -> Bool` | returns true if self is Odd
 
