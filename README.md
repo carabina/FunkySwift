@@ -434,7 +434,7 @@ Array(skipNil(seq)) // [1, 2, 3]
 
 Function  | Description
 ------------- | -------------
-memoize<T: Hashable, U>(f: (T -> U)) -> (T -> U) | simple memoizer
+`memoize<T: Hashable, U>(f: (T -> U)) -> (T -> U)` | simple memoizer
 
 ```swift
 func fib(n: Int) -> Int {
