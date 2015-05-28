@@ -254,7 +254,7 @@ These functions and operators allow one-ended slicing, as by [Airspeed Velocity]
 ### Closed Intervals ###
 Function  | Description
 ------------- | -------------
-`contains(with: ClosedInterval<T>) -> Bool` | Checks if one interval is contained entirely ion the other
+`contains(with: ClosedInterval<T>) -> Bool` | Checks if one interval is contained entirely in the other
 `span(with: ClosedInterval) -> ClosedInterval<T>` | returns the largest interval of which both ends are still inside at least one of the constituent intervals
 `between(with: ClosedInterval<T>) -> ClosedInterval<T>` | returns an interval that is between two other intervals. If the intervals overlap, it will return an interval between the two overlapping ends
 `subtract(with: ClosedInterval<T>) -> ClosedInterval<T>?` | returns self where no part of self except either the end or start is contained in the interval "with"
