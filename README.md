@@ -422,3 +422,13 @@ Function  | Description
 ```swift
 histo([1, 2, 3, 3, 4, 2, 2, 2, 1]) // [2: 4, 3: 2, 1: 2, 4: 1]
 ```
+
+Function  | Description
+------------- | -------------
+`skipNil<S: SequenceType, T where S.Generator.Element == T?>(seq: S) -> GeneratorOf<T> ` | returns a generator with all optionals unwrapped, and any that evaluate to nil removed
+
+```swift
+let seq: [Int?]
+seq = [1, nil, 2, nil, 3, nil]
+Array(skipNil(seq)) // [1, 2, 3]
+```
