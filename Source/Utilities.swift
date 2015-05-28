@@ -134,3 +134,18 @@ func catByClosure<K: Hashable, S: SequenceType>(seq: S, clos: [K:(S.Generator.El
   }
 }
 
+/**
+returns a dictionary of which the keys are the elements in seq, and the values are the number of times each element occurs
+*/
+
+func histo<S: SequenceType where S.Generator.Element: Hashable>(seq: S) -> [S.Generator.Element:Int] {
+  
+  return reduce(seq, [:]) {
+    
+    (var accu: [S.Generator.Element:Int], element) in
+    accu[element] = accu[element]?.successor() ?? 1
+    return accu
+    
+  }
+}
+

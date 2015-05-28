@@ -157,6 +157,18 @@ nums.takeWhile{$0 < 5}.array	// [1, 2, 3, 4]
 nums.dropWhile{$0 < 5}.array	// [5, 6, 7, 8, 9]
 nums.takeAfter{$0 >= 5}.array	// [6, 7, 8, 9]
 ```
+### Hopping, Skipping, and Jumping###
+Function  | Description
+------------- | -------------
+`jump(n: Int) -> LazySequence<GeneratorOf<S.Generator.Element>>` | returns a sequence made by jumping over n elements of the underlying sequence. The first element of the underlying sequence is jumped over.
+`hop(n: Int) -> LazySequence<GeneratorOf<S.Generator.Element>>` | returns a sequence made by hopping over n elements of the underlying sequence. The first element of the underlying sequence is not hopped over.
+
+```swift
+let seq = LazySequence([1, 2, 3, 4, 5, 6])
+
+seq.hop(2).array  // [1, 4]
+seq.jump(2).array // [3, 6]
+```
 
 ### Higher-Order ###
 
@@ -229,6 +241,20 @@ These functions operate on the digits of self, in base 10. The infix operator `|
 ```swift
 345.digits() // [3, 4, 5]
 34 |+ 56     // 3456
+```
+
+Function  | Description
+------------- | -------------
+`times<T>(call: () -> T)` | repeats a function n times, where n is self
+
+```swift
+var i = 0
+
+func incI ()->() { ++i }
+
+4.times(incI)
+
+i // 4
 ```
 
 Function  | Description
@@ -388,4 +414,11 @@ catByClosure(nums, catagories)
 //  "odd": [1, 3, 5, 7, 9],
 //  "small": [1, 2, 3, 4]
 //]
+```
+Function  | Description
+------------- | -------------
+`histo<S: SequenceType where S.Generator.Element: Hashable>(seq: S) -> [S.Generator.Element:Int]` | returns a dictionary of which the keys are the elements in seq, and the values are the number of times each element occurs
+
+```swift
+histo([1, 2, 3, 3, 4, 2, 2, 2, 1]) // [2: 4, 3: 2, 1: 2, 4: 1]
 ```

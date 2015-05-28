@@ -54,6 +54,12 @@ extension Int {
     ).reverse()
   }
   
+  /**
+  repeats a function n times, where n is self
+  */
+  func times<T>(call: () -> T) { for _ in 0..<self { call() } }
+  
+  
 }
 
 infix operator |+ {associativity left precedence 160}

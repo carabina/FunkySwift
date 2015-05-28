@@ -115,6 +115,25 @@ extension LazySequence {
   }
   
   /**
+  returns a sequence made by jumping over n elements of the underlying sequence. The first element of the underlying sequence is jumped over.
+  */
+  func jump(n: Int) -> LazySequence<GeneratorOf<S.Generator.Element>> {
+    var g = self.generate()
+    return lazy( GeneratorOf { for _ in 0..<n {g.next()}; return g.next() } )
+  }
+  /**
+  returns a sequence made by hopping over n elements of the underlying sequence. The first element of the underlying sequence is not hopped over.
+  */
+  func hop(n: Int) -> LazySequence<GeneratorOf<S.Generator.Element>> {
+    var g = self.generate()
+    return lazy( GeneratorOf {
+      let next = g.next()
+      for _ in 0..<n {g.next()}
+      return next
+      })
+  }
+  
+  /**
   Return the result of repeatedly calling combine with an accumulated value initialized to initial and each element of sequence, in turn.
   */
   
