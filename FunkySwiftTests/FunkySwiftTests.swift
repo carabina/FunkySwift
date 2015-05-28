@@ -9,7 +9,6 @@
 import Foundation
 import XCTest
 
-let toSearch = "elibaosudhbgaieubry"
 
 
 
@@ -18,19 +17,6 @@ let toSearch = "elibaosudhbgaieubry"
 class FunkySwiftTests: XCTestCase {
 
 
-  func testMine() {
-    self.measureBlock() {
-      for _ in 0...1000000 {
-        let an = findMany(toSearch, {$0 != "a"})
-      }
-    }
-  }
-  func testHis() {
-    self.measureBlock() {
-      for _ in 0...1000000 {
-        let an = findMany(toSearch, {$0 != "a"})
-      }
-    }
-  }
+
   
 }

@@ -248,8 +248,17 @@ These functions all return an array of strings. If the function is given the `st
 ## RangesAndIntervals ##
 
 ### Open-Ended Ranges ###
+Type  | Description
+------------- | -------------
+`struct OpenEndedRange<I: ForwardIndexType> { let start: I }` | A range containing only a start value
+`struct OpenStartedRange<I: ForwardIndexType> { let end: I }` | A range containing only a start value
 
-These functions and operators allow one-ended slicing, as by [Airspeed Velocity.](http://airspeedvelocity.net/2015/05/02/spelling//) The operators for these are `..<`. 
+These structs and operators allow one-ended slicing, as by [Airspeed Velocity.](http://airspeedvelocity.net/2015/05/02/spelling//) The operators for these are `..<`.
+
+```swift
+let word = "Hello"
+word[word.startIndex.successor()..<] // "ello"
+```
 
 ### Closed Intervals ###
 Function  | Description
