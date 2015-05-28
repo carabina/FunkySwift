@@ -261,6 +261,17 @@ Function  | Description
 
 These functions operate on `ClosedInterval`s.
 
+### Generators and Helpers ###
+Operator  | Description
+------------- | -------------
+`postfix func ... <I: ForwardIndexType>(var from: I) -> GeneratorOf<I>` | returns a generator of increments starting at self
+
+```swift
+for i in 1... {
+  print(i) // 1, 2, 3, 4, 5, 6, 7, 8, 9...
+}
+```
+
 Operator  | Equivalent Function
 ------------- | -------------
 `+` | `left.span(right)`

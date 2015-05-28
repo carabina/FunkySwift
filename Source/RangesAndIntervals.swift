@@ -10,6 +10,7 @@ import Foundation
 
 postfix operator ..< { }
 prefix operator ..< { }
+postfix operator ... { }
 
 struct OpenEndedRange<I: ForwardIndexType> { let start: I }
 
@@ -31,6 +32,12 @@ A range for one-ended slicing of slicable types, as by `Airspeed Velocity
 prefix func ..<<I: ForwardIndexType>(rhs: I) -> OpenStartedRange<I> {
   
   return OpenStartedRange(end: rhs)
+}
+/**
+returns a generator of increments of self
+*/
+postfix func ...<I: ForwardIndexType>(var from: I) -> GeneratorOf<I> {
+  return GeneratorOf {from++}
 }
 
 extension ClosedInterval {
