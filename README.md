@@ -209,8 +209,9 @@ Function  | Description
 Function  | Description
 ------------- | -------------
 `gcd(var a: Int) -> Int` | returns the greatest common divisor of self and a
+`lcm(a: Int) -> Int` | returns the lowest common multiple of self and a
 
-This uses the Euclidean Algorithm.
+These uses the Euclidean Algorithm.
 
 Function  | Description
 ------------- | -------------

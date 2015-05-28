@@ -23,7 +23,12 @@ extension Int {
     while a != 0 { (b, a) = (a, b % a) }
     return b
   }
-  
+  /**
+  returns the lowest common multiple of self and a
+  */
+  func lcm(a: Int) -> Int {
+    return self * a / self.gcd(a)
+  }
   /**
   concatenates self with x, as in: 54.concat(21) = 5421
   
