@@ -137,6 +137,13 @@ internal extension Array {
     var a = self
     return lazy( GeneratorOf{ a.nextLexPerm(isOrderedBefore) })
   }
+  /**
+  returns an array of chunks of self, all of length n. The last chunk may be smaller than n.
+  */
+  func chunk(n: Int) -> [ArraySlice<T>] {
+    return ArraySlice(self).chunk(n)
+  }
+  
   subscript(r: OpenEndedRange<Int>) -> ArraySlice<T> {
     return self[r.start..<self.count]
   }
@@ -144,6 +151,13 @@ internal extension Array {
     return self[0..<r.end]
   }
 }
-
+extension ArraySlice {
+  /**
+  returns an array of chunks of self, all of length n. The last chunk may be smaller than n.
+  */
+  func chunk(n: Int) -> [ArraySlice<T>] {
+    return self.count <= n ? [self] : [self[0..<n]] + self[n..<self.count].chunk(n)
+  }
+}
 
 

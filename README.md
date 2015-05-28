@@ -96,6 +96,12 @@ Function  | Description
 ------------- | -------------
 ```func randomElement() -> T```| Returns a random element of self
 
+Function  | Description
+------------- | -------------
+`chunk(n: Int) -> [ArraySlice<T>]` | returns an array of chunks of self, all of length n. The last chunk may be smaller than n.
+```swift
+[1, 2, 3, 4, 5].chunk(2) // [[1, 2], [3, 4], [5]]
+```
 
 ## LazySequence ##
 
