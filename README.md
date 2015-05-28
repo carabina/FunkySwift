@@ -221,7 +221,7 @@ These functions operate on the digits of self, in base 10. The infix operator `|
 
 ```swift
 345.digits() // [3, 4, 5]
-34 +| 56     // 3456
+34 |+ 56     // 3456
 ```
 
 Function  | Description
