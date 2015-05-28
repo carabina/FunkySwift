@@ -11,6 +11,7 @@ import Foundation
 postfix operator ..< { }
 prefix operator ..< { }
 postfix operator ... { }
+prefix operator ... { }
 
 struct OpenEndedRange<I: ForwardIndexType> { let start: I }
 
@@ -30,7 +31,6 @@ A range for one-ended slicing of slicable types, as by `Airspeed Velocity
 */
 
 prefix func ..<<I: ForwardIndexType>(rhs: I) -> OpenStartedRange<I> {
-  
   return OpenStartedRange(end: rhs)
 }
 /**
@@ -38,6 +38,12 @@ returns a generator of increments of self
 */
 postfix func ...<I: ForwardIndexType>(var from: I) -> GeneratorOf<I> {
   return GeneratorOf {from++}
+}
+/**
+returns a generator of decrements of self
+*/
+prefix func ...<I: BidirectionalIndexType>(var from: I) -> GeneratorOf<I> {
+  return GeneratorOf {from--}
 }
 /**
 returns a StrideThrough, with the distance between the two elements of the tuple taken to be the stride
@@ -56,6 +62,45 @@ returns a StrideTo, with the distance between the two elements of the tuple take
 */
 func ..<<T : Strideable>(lhs: (T, T), rhs: T) -> StrideTo<T> {
   return stride(from: lhs.0, to: rhs, by: lhs.0.distanceTo(lhs.1))
+}
+/**
+iterates through an array, and when the end is reached, continues on by striding the same distance as is between the last two elements of the array
+*/
+postfix func ... <T: Strideable>(steps: [T]) -> GeneratorOf<T> {
+  
+  var g = steps.generate()
+  
+  let stride = steps[steps.count - 2].distanceTo(steps.last!)
+  var fG = steps.generate()
+  var cur = steps.last!
+  var sG = GeneratorOf<T> {
+    cur = cur.advancedBy(stride)
+    return cur
+  }
+  
+  return GeneratorOf<T> { fG.next() ?? sG.next() }
+}
+/**
+iterates through an array, and when the end is reached, continues on by striding the same distance as is between the last two elements of the array, until the rhs value is reached. Stops at or before rhs.
+*/
+func ... <T: Strideable> (lhs: [T], rhs: T) -> GeneratorOf<T> {
+  
+  var fG = lhs.generate()
+  var sG = ((lhs[lhs.count - 2], lhs.last!)...rhs).generate()
+  sG.next(); sG.next()
+  return GeneratorOf { fG.next() ?? sG.next() }
+  
+}
+/**
+iterates through an array, and when the end is reached, continues on by striding the same distance as is between the last two elements of the array, until the rhs value is reached. Stops before rhs.
+*/
+func ..< <T: Strideable> (lhs: [T], rhs: T) -> GeneratorOf<T> {
+  
+  var fG = lhs.generate()
+  var sG = ((lhs[lhs.count - 2], lhs.last!)..<rhs).generate()
+  sG.next(); sG.next()
+  return GeneratorOf { fG.next() ?? sG.next() }
+  
 }
 
 extension ClosedInterval {

@@ -261,17 +261,33 @@ Function  | Description
 
 These functions operate on `ClosedInterval`s.
 
+Operator  | Equivalent Function
+------------- | -------------
+`+` | `left.span(right)`
+`-` | `left.subtract(right)`
+
 ### Generators and Helpers ###
 Operator  | Description
 ------------- | -------------
 `postfix func ... <I: ForwardIndexType>(var from: I) -> GeneratorOf<I>` | returns a generator of increments starting at self
-`...<T : Strideable>(lhs: (T, T), rhs: T) -> StrideThrough<T>` | returns a StrideThrough, with the distance between the two elements of the tuple taken to be the stride
-`..<<T : Strideable>(lhs: (T, T), rhs: T) -> StrideTo<T> ` | returns a StrideThrough, with the distance between the two elements of the tuple taken to be the stride
+`prefix func ... <I: BidirectionalIndexType>(var from: I) -> GeneratorOf<I>` | returns a generator of decrements starting at self
+
 ```swift
 for i in 1... {
   print(i) 		// 1, 2, 3, 4, 5, 6, 7, 8, 9...
 }
 
+for i in ...1 {
+  print(i) 		// 1, 0, -1, -2, -3, -4, -5, -6...
+}
+```
+
+Operator  | Description
+------------- | -------------
+`...<T : Strideable>(lhs: (T, T), rhs: T) -> StrideThrough<T>` | returns a StrideThrough, with the distance between the two elements of the tuple taken to be the stride
+`..<<T : Strideable>(lhs: (T, T), rhs: T) -> StrideTo<T> ` | returns a StrideThrough, with the distance between the two elements of the tuple taken to be the stride
+
+```swift
 for i in (2, 4)...10 {
   print(i) 		// 2, 4, 6, 8, 10
 }
@@ -281,10 +297,24 @@ for i in (2, 4)..<10 {
 }
 ```
 
-Operator  | Equivalent Function
+Operator  | Description
 ------------- | -------------
-`+` | `left.span(right)`
-`-` | `left.subtract(right)`
+postfix func ... <T: Strideable>(steps: [T]) -> GeneratorOf<T> | iterates through an array, and when the end is reached, continues on by striding the same distance as is between the last two elements of the array
+func ... <T: Strideable> (lhs: [T], rhs: T) -> GeneratorOf<T> | iterates through an array, and when the end is reached, continues on by striding the same distance as is between the last two elements of the array, until the rhs value is reached. Stops at or before rhs.
+func ..< <T: Strideable> (lhs: [T], rhs: T) -> GeneratorOf<T> | iterates through an array, and when the end is reached, continues on by striding the same distance as is between the last two elements of the array, until the rhs value is reached. Stops before rhs.
+
+```swift
+for i in [1, 2, 3, 5]... {
+  print(i) // 1, 2, 3, 5, 7, 9, 11, 13...
+}
+for i in [1, 2, 3, 5]...11 {
+  print(i) // 1, 2, 3, 5, 7, 9, 11
+}
+for i in [1, 2, 3, 5]..<11 {
+  print(i) // 1, 2, 3, 5, 7, 9
+}
+
+```
 
 # Utilities #
 Function  | Description
