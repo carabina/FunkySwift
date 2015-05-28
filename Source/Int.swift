@@ -16,10 +16,12 @@ extension Int {
     return self % 2 != 0
   }
   /**
-  mutates self to be the greatest common divisor of self and x
+  returns the greatest common divisor of self and a
   */
-  mutating func gcd(var x: Int) {
-    while x != 0 { (self, x) = (x, self % x) }
+  func gcd(var a: Int) -> Int {
+    var b = self
+    while a != 0 { (b, a) = (a, b % a) }
+    return b
   }
   
   /**

@@ -208,9 +208,9 @@ Function  | Description
 ## Int ##
 Function  | Description
 ------------- | -------------
-`gcd(var x: Int)` | mutates self to be the greatest common divisor of self and x
+`gcd(var a: Int) -> Int` | returns the greatest common divisor of self and a
 
-This mutates self to the greatest common divisor of self and x, via the Euclidean Algorithm.
+This uses the Euclidean Algorithm.
 
 Function  | Description
 ------------- | -------------
