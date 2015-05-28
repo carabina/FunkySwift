@@ -362,7 +362,7 @@ These work the same as the standard `find()` function, except they can take a cl
 
 Function  | Description
 ------------- | -------------
-catByClosure<K: Hashable, S: SequenceType>(seq: S, clos: [K:(S.Generator.Element -> Bool)]) -> [K : [S.Generator.Element]] | Categorises elements of a sequence according to closures.
+`catByClosure<K: Hashable, S: SequenceType>(seq: S, clos: [K:(S.Generator.Element -> Bool)]) -> [K : [S.Generator.Element]]` | Categorises elements of a sequence according to closures.
 
 This function walks through a dictionary of keys and closures, and for every key, appends onto a dictionary every value in seq that returns true for the corresponding closure. Elements can be repeated in the returned dictionary, if a value in the sequence returns true for more than one closure.
 
