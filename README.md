@@ -265,10 +265,19 @@ These functions operate on `ClosedInterval`s.
 Operator  | Description
 ------------- | -------------
 `postfix func ... <I: ForwardIndexType>(var from: I) -> GeneratorOf<I>` | returns a generator of increments starting at self
-
+`...<T : Strideable>(lhs: (T, T), rhs: T) -> StrideThrough<T>` | returns a StrideThrough, with the distance between the two elements of the tuple taken to be the stride
+`..<<T : Strideable>(lhs: (T, T), rhs: T) -> StrideTo<T> ` | returns a StrideThrough, with the distance between the two elements of the tuple taken to be the stride
 ```swift
 for i in 1... {
-  print(i) // 1, 2, 3, 4, 5, 6, 7, 8, 9...
+  print(i) 		// 1, 2, 3, 4, 5, 6, 7, 8, 9...
+}
+
+for i in (2, 4)...10 {
+  print(i) 		// 2, 4, 6, 8, 10
+}
+
+for i in (2, 4)..<10 {
+  print(i) 		// 2, 4, 6, 8
 }
 ```
 

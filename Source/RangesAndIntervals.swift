@@ -39,6 +39,24 @@ returns a generator of increments of self
 postfix func ...<I: ForwardIndexType>(var from: I) -> GeneratorOf<I> {
   return GeneratorOf {from++}
 }
+/**
+returns a StrideThrough, with the distance between the two elements of the tuple taken to be the stride
+
+:param: lhs A tuple of strideable objects, this is what the stride will be taken from
+:param: rhs the "through" argument for StrideThrough
+*/
+func ...<T : Strideable>(lhs: (T, T), rhs: T) -> StrideThrough<T> {
+  return stride(from: lhs.0, through: rhs, by: lhs.0.distanceTo(lhs.1))
+}
+/**
+returns a StrideTo, with the distance between the two elements of the tuple taken to be the stride
+
+:param: lhs A tuple of strideable objects, this is what the stride will be taken from
+:param: rhs the "to" argument for StrideThrough
+*/
+func ..<<T : Strideable>(lhs: (T, T), rhs: T) -> StrideTo<T> {
+  return stride(from: lhs.0, to: rhs, by: lhs.0.distanceTo(lhs.1))
+}
 
 extension ClosedInterval {
   /**
