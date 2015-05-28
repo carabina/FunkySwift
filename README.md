@@ -87,7 +87,7 @@ Function  | Description
 ```subscript(r: OpenEndedRange<Int>) -> ArraySlice<T>```  | Returns a slice of self, from an index to the end
 ```subscript(r: OpenStartedRange<Int>) -> ArraySlice<T>``` | Returns a slice of self, from start to an index
 
-An implementation of open ranges for arrays. 
+An implementation of open ranges for arrays, as by [Airspeed Velocity](http://airspeedvelocity.net/2015/05/02/spelling//).
 ```swift
 let ar = [0, 1, 2, 3, 4]
 let split = ar[2..<] 		// [2, 3, 4]
@@ -249,7 +249,7 @@ These functions all return an array of strings. If the function is given the `st
 
 ### Open-Ended Ranges ###
 
-These functions and operators allow one-ended slicing, as by [Airspeed Velocity](http://airspeedvelocity.net/2015/05/02/spelling//) The operators for these are `..<`. 
+These functions and operators allow one-ended slicing, as by [Airspeed Velocity.](http://airspeedvelocity.net/2015/05/02/spelling//) The operators for these are `..<`. 
 
 ### Closed Intervals ###
 Function  | Description
