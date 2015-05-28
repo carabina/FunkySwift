@@ -214,10 +214,15 @@ This uses the Euclidean Algorithm.
 
 Function  | Description
 ------------- | -------------
-`digits() -> [Int]` | concatenates self with x, as in: 54.concat(21) = 5421
-`concat(x: Int) -> Int` | returns an array of the digits of self
+`digits() -> [Int]` | returns an array of the digits of self
+`concat(x: Int) -> Int` | concatenates self with x
 
 These functions operate on the digits of self, in base 10. The infix operator `|+` also performs concat.
+
+```swift
+345.digits() // [3, 4, 5]
+34 +| 56     // 3456
+```
 
 Function  | Description
 ------------- | -------------
