@@ -149,6 +149,17 @@ func histo<S: SequenceType where S.Generator.Element: Hashable>(seq: S) -> [S.Ge
   }
 }
 /**
+returns a dictionary of which the keys are the keys of clos in seq, and the values are the number of elements that match for each closure in clos
+*/
+func histoByClosure<K: Hashable, S: SequenceType>(seq: S, clos: [K:(S.Generator.Element -> Bool)]) -> [K : Int] {
+  
+  return reduce(clos, [K:Int]()) {
+    (var accu, el) in
+    accu[el.0] = filter(seq, el.1).count + (accu[el.0] ?? 0)
+    return accu
+  }
+}
+/**
 returns a generator with all optionals unwrapped, and any that evaluates to nil removed
 */
 func skipNil<S: SequenceType, T where S.Generator.Element == T?>(seq: S) -> GeneratorOf<T> {

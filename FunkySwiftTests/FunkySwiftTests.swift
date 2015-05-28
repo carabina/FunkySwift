@@ -10,12 +10,13 @@ import Foundation
 import XCTest
 
 
-
-
-
-
 class FunkySwiftTests: XCTestCase {
 
+  func testOne() {
+    self.measureBlock() {
+
+    }
+  }
 
 
   
