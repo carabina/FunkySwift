@@ -174,4 +174,23 @@ func skipNil<S: SequenceType, T where S.Generator.Element == T?>(seq: S) -> Gene
     }
   }
 }
+/**
+simple memoizer
+*/
+func memoize<T: Hashable, U>(f: (T -> U)) -> (T -> U) {
+  
+  var prev = [T:U]()
+  
+  return {
+    (arg: T) in
+    
+    if let ret = prev[arg] { return ret } else {
+      
+      let ret = f(arg)
+      prev[arg] = ret
+      return ret
+      
+    }
+  }
+}
 

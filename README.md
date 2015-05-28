@@ -431,3 +431,21 @@ let seq: [Int?]
 seq = [1, nil, 2, nil, 3, nil]
 Array(skipNil(seq)) // [1, 2, 3]
 ```
+
+Function  | Description
+------------- | -------------
+memoize<T: Hashable, U>(f: (T -> U)) -> (T -> U) | simple memoizer
+
+```swift
+func fib(n: Int) -> Int {
+  
+  return n < 2 ? n : fib(n - 1) + fib(n - 2)
+  
+}
+
+let memFib = memoize(fib)
+
+memFib(10) // calculates
+
+memFib(10) // no calculation
+```
