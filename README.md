@@ -359,3 +359,27 @@ Function  | Description
 `findMany<C : CollectionType>(domain: C, include: C.Generator.Element -> Bool) -> LazySequence<FilterSequenceView<Range<C.Index>>>` | Returns the indices of elements that satisfy the include closure.
 
 These work the same as the standard `find()` function, except they can take a closure, and can return multiple indices.
+
+Function  | Description
+------------- | -------------
+catByClosure<K: Hashable, S: SequenceType>(seq: S, clos: [K:(S.Generator.Element -> Bool)]) -> [K : [S.Generator.Element]] | Categorises elements of a sequence according to closures.
+
+This function walks through a dictionary of keys and closures, and for every key, appends onto a dictionary every value in seq that returns true for the corresponding closure. Elements can be repeated in the returned dictionary, if a value in the sequence returns true for more than one closure.
+
+```swift
+let isEven = {$0 % 2 == 0}
+let isOdd = {$0 % 2 != 0}
+let isSmall = {$0 < 5}
+
+let catagories = ["even" : isEven, "odd" : isOdd, "small" : isSmall]
+
+let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+catByClosure(nums, catagories)
+
+//[
+//  "even": [2, 4, 6, 8, 10],
+//  "odd": [1, 3, 5, 7, 9],
+//  "small": [1, 2, 3, 4]
+//]
+```

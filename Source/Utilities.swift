@@ -114,5 +114,23 @@ func findMany
     return lazy(indices(domain)).filter{domain[$0] == element}
     
 }
+/**
+Categorises elements of a sequence according to closures.
 
+:param: seq The sequence to catagorise
+:param: clos A dictionary of keys and closures.
+
+:returns: A dictionary, where the keys are the keys of the clos argument, and the values are whatever values in seq that the corresponding closure matched for
+*/
+
+func catByClosure<K: Hashable, S: SequenceType>(seq: S, clos: [K:(S.Generator.Element -> Bool)]) -> [K : [S.Generator.Element]] {
+  
+  let empty: [K:[S.Generator.Element]] = [:]
+  
+  return reduce(clos, empty) {
+    (var accu, el) in
+    accu[el.0] = filter(seq, el.1) + (accu[el.0] ?? [])
+    return accu
+  }
+}
 
