@@ -395,8 +395,9 @@ These work the same as the standard `find()` function, except they can take a cl
 Function  | Description
 ------------- | -------------
 `catByClosure<K: Hashable, S: SequenceType>(seq: S, clos: [K:(S.Generator.Element -> Bool)]) -> [K : [S.Generator.Element]]` | Categorises elements of a sequence according to closures.
+`histo<S: SequenceType where S.Generator.Element: Hashable>(seq: S) -> [S.Generator.Element:Int]` | returns a dictionary of which the keys are the elements in seq, and the values are the number of times each element occurs
+`histoByClosure<K: Hashable, S: SequenceType>(seq: S, clos: [K:(S.Generator.Element -> Bool)]) -> [K : Int]` | returns a dictionary of which the keys are the keys of clos in seq, and the values are the number of elements that match for each closure in clos
 
-This function walks through a dictionary of keys and closures, and for every key, appends onto a dictionary every value in seq that returns true for the corresponding closure. Elements can be repeated in the returned dictionary, if a value in the sequence returns true for more than one closure.
 
 ```swift
 let isEven = {$0 % 2 == 0}
@@ -414,14 +415,12 @@ catByClosure(nums, catagories)
 //  "odd": [1, 3, 5, 7, 9],
 //  "small": [1, 2, 3, 4]
 //]
-```
-Function  | Description
-------------- | -------------
-`histo<S: SequenceType where S.Generator.Element: Hashable>(seq: S) -> [S.Generator.Element:Int]` | returns a dictionary of which the keys are the elements in seq, and the values are the number of times each element occurs
 
-```swift
 histo([1, 2, 3, 3, 4, 2, 2, 2, 1]) // [2: 4, 3: 2, 1: 2, 4: 1]
+
+histoByClosure(nums, catagories)  // ["even": 5, "odd": 5, "small": 4]
 ```
+
 
 Function  | Description
 ------------- | -------------
