@@ -21,4 +21,38 @@ extension Int {
   mutating func gcd(var x: Int) {
     while x != 0 { (self, x) = (x, self % x) }
   }
+  
+  /**
+  concatenates self with x, as in: 54.concat(21) = 5421
+  
+  :param: the number to be concatenated onto the end of self
+  */
+  
+  func concat(x: Int) -> Int {
+    return self * Int(pow(10,(ceil(log10(Double(x)))))) + x
+  }
+  
+  /**
+  returns an array of the digits of self
+  */
+  
+  func digits() -> [Int] {
+    var left = self
+    return Array(
+      GeneratorOf<Int> {
+        let ret = left % 10
+        left /= 10
+        return ret > 1 ? ret : nil
+      }
+    ).reverse()
+  }
+  
+}
+
+infix operator |+ {associativity left precedence 160}
+
+func |+(lhs: Int, rhs: Int) -> Int {
+  
+  return lhs.concat(rhs)
+  
 }

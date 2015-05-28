@@ -214,9 +214,15 @@ This mutates self to the greatest common divisor of self and x, via the Euclidea
 
 Function  | Description
 ------------- | -------------
+`digits() -> [Int]` | concatenates self with x, as in: 54.concat(21) = 5421
+`concat(x: Int) -> Int` | returns an array of the digits of self
+
+These functions operate on the digits of self, in base 10. The infix operator `|+` also performs concat.
+
+Function  | Description
+------------- | -------------
 `isEven() -> Bool` | returns true if self is even
 `isOdd() -> Bool` | returns true if self is Odd
-
 
 ## String ##
 Function  | Description
