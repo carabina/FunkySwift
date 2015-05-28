@@ -340,9 +340,9 @@ for i in (2, 4)..<10 {
 
 Operator  | Description
 ------------- | -------------
-postfix func ... <T: Strideable>(steps: [T]) -> GeneratorOf<T> | iterates through an array, and when the end is reached, continues on by striding the same distance as is between the last two elements of the array
-func ... <T: Strideable> (lhs: [T], rhs: T) -> GeneratorOf<T> | iterates through an array, and when the end is reached, continues on by striding the same distance as is between the last two elements of the array, until the rhs value is reached. Stops at or before rhs.
-func ..< <T: Strideable> (lhs: [T], rhs: T) -> GeneratorOf<T> | iterates through an array, and when the end is reached, continues on by striding the same distance as is between the last two elements of the array, until the rhs value is reached. Stops before rhs.
+`postfix func ... <T: Strideable>(steps: [T]) -> GeneratorOf<T>` | iterates through an array, and when the end is reached, continues on by striding the same distance as is between the last two elements of the array
+`func ... <T: Strideable> (lhs: [T], rhs: T) -> GeneratorOf<T>` | iterates through an array, and when the end is reached, continues on by striding the same distance as is between the last two elements of the array, until the rhs value is reached. Stops at or before rhs.
+`func ..< <T: Strideable> (lhs: [T], rhs: T) -> GeneratorOf<T>` | iterates through an array, and when the end is reached, continues on by striding the same distance as is between the last two elements of the array, until the rhs value is reached. Stops before rhs.
 
 ```swift
 for i in [1, 2, 3, 5]... {
