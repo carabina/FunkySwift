@@ -188,15 +188,7 @@ returns a generator with all optionals unwrapped, and any that evaluates to nil 
 */
 func skipNil<S: SequenceType, T where S.Generator.Element == T?>(seq: S) -> GeneratorOf<T> {
   var g = seq.generate()
-  return GeneratorOf{
-    for;;{
-      if let e = g.next(){
-        if let e = e { return e }
-      } else {
-        return nil
-      }
-    }
-  }
+  return GeneratorOf{ while let e = g.next() { if let e = e { return e }}; return nil }
 }
 /**
 simple memoizer
