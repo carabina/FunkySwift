@@ -191,7 +191,7 @@ func histoByClosure<K: Hashable, S: SequenceType>(seq: S, clos: [K:(S.Generator.
 /**
 returns a generator with all optionals unwrapped, and any that evaluates to nil removed
 */
-internal func skipNil<S: SequenceType, T where S.Generator.Element == T?>(seq: S) -> GeneratorOf<T> {
+func skipNil<S: SequenceType, T where S.Generator.Element == T?>(seq: S) -> GeneratorOf<T> {
   var g = seq.generate()
   return GeneratorOf{ while let e = g.next() { if let e = e { return e }}; return nil }
 }
@@ -214,4 +214,16 @@ func memoize<T: Hashable, U>(f: (T -> U)) -> (T -> U) {
     }
   }
 }
-
+/**
+a lazy flatten function that produces a generator
+*/
+func flatten
+  <S: SequenceType where S.Generator.Element: SequenceType>
+  (seq: S) -> GeneratorOf<S.Generator.Element.Generator.Element> {
+  var g = seq.generate()
+  var inG = g.next()?.generate()
+  return GeneratorOf{
+    while inG != nil {if let next = inG!.next() {return next} else {inG = g.next()?.generate()}}
+    return nil
+  }
+}
