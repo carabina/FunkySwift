@@ -96,7 +96,7 @@ extension Int {
       var nums = [Int](0...self)
       for (var i = 2; i <= max; ++i) { if nums[i] != 0 {
         if self % i == 0 { return false } else {
-          for nP in stride(from: i*i, to: self, by: i){ nums[nP] = 0 }
+          for nP in stride(from: i*i, through: max, by: i){ nums[nP] = 0 }
         }
       }}
       return true
