@@ -25,9 +25,11 @@ FunkySwift is a library of extensions and functional(ish) tools for Swift.
 Function  | Description
 ------------- | -------------
 ```combinations(n: Int) -> [[T]]```  | Returns an array of the combinations of a given length of self.
+`combosWithRep(n: Int) -> [[T]]` | Returns the combinations with repetition of a given length of self.
 
 ```swift
-[1, 2, 3].combinations(2) // [[2, 3], [1, 3], [1, 2]]
+[1, 2, 3].combinations(2)  // [[2, 3], [1, 3], [1, 2]]
+[1, 2, 3].combosWithRep(2) // [[3, 3], [2, 3], [1, 3], [2, 2], [1, 2], [1, 1]]
 ```
 
 ####Permutations####
@@ -99,8 +101,13 @@ Function  | Description
 Function  | Description
 ------------- | -------------
 `chunk(n: Int) -> [ArraySlice<T>]` | returns an array of chunks of self, all of length n. The last chunk may be smaller than n.
+`cycle() -> GeneratorOf<T> ` | an endless repetition of self
 ```swift
-[1, 2, 3, 4, 5].chunk(2) // [[1, 2], [3, 4], [5]]
+[1, 2, 3, 4, 5].chunk(2) 	// [[1, 2], [3, 4], [5]]
+for i in [1, 2, 3].cycle() { 
+  print(i)			// 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3...
+}
+
 ```
 
 ## LazySequence ##
@@ -242,6 +249,12 @@ These functions operate on the digits of self, in base 10. The infix operator `|
 345.digits() // [3, 4, 5]
 34 |+ 56     // 3456
 ```
+
+Function  | Description
+------------- | -------------
+`primesBelow() -> GeneratorOf<Int> ` | returns the primes below self
+`primesFactors() -> GeneratorOf<Int> ` | returns the primes factors of self
+`isPrime() -> Bool ` | returns true iff self is prime
 
 Function  | Description
 ------------- | -------------
@@ -436,6 +449,8 @@ Array(skipNil(seq)) // [1, 2, 3]
 
 Function  | Description
 ------------- | -------------
+`filterMap<S: SequenceType, T>(seq: S, map: S.Generator.Element -> T, filter: S.Generator.Element -> Bool) -> GeneratorOf<T>` | filters and maps at once
+`flatten <S: SequenceType where S.Generator.Element: SequenceType> (seq: S) -> GeneratorOf<S.Generator.Element.Generator.Element>` | a lazy flatten function that produces a generator
 `memoize<T: Hashable, U>(f: (T -> U)) -> (T -> U)` | simple memoizer
 
 ```swift
