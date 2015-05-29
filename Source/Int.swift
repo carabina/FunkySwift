@@ -63,12 +63,10 @@ extension Int {
     let max = Int(ceil(sqrt(Double(self))))
     var (nums, i) = ([Int](0..<self), 1)
     return GeneratorOf {
-      for (var p = nums[++i]; i < self; p = nums[++i]) {
-        if p != 0 {
-          if p < max {for nP in stride(from: p*p, to: self, by: p){nums[nP] = 0}}
-          return p
-        }
-      }
+      for (++i; i < self; ++i) { if nums[i] != 0 {
+        if i < max {for nP in stride(from: i*i, to: self, by: i){nums[nP] = 0}}
+        return i
+      }}
       return nil
     }
   }
@@ -96,9 +94,9 @@ extension Int {
     default:
       let max = Int(sqrt(Double(self)))
       var nums = [Int](0...self)
-      for (var i = 1, p = nums[++i]; i <= max; p = nums[++i]) { if p != 0 {
-        if self % p == 0 { return false } else {
-          for nP in stride(from: p*p, to: self, by: p){ nums[nP] = 0 }
+      for (var i = 2; i <= max; ++i) { if nums[i] != 0 {
+        if self % i == 0 { return false } else {
+          for nP in stride(from: i*i, to: self, by: i){ nums[nP] = 0 }
         }
       }}
       return true
