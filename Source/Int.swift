@@ -99,6 +99,10 @@ extension Int {
     }
   }
   
+  func isDivBy(n: Int) -> Bool {
+    return self % n == 0
+  }
+  
   
 }
 
