@@ -127,19 +127,11 @@ internal extension Array {
   :param: isOrderedBefore a closure that returns true if its first argument is ordered before its second
   */
   mutating func nextLexPerm(isOrderedBefore: (T, T) -> Bool) -> [T]? {
-    var gen = lazy(self).reverse().generate()
-    var (l, k) = (self.endIndex, self.endIndex.predecessor().predecessor())
-    var (prev, cur) = (gen.next(), gen.next())
-    for (;
-      (cur.flatMap{cur in prev.map{!isOrderedBefore(cur, $0)}} ?? false);
-      swap(&prev, &cur), cur = gen.next()) {
-        k = k.predecessor()
-    }
-    if k < self.startIndex {return nil}
-    gen = lazy(self).reverse().generate()
-    do {l = l.predecessor()} while (gen.next().map{!isOrderedBefore(cur!, $0)} ?? false)
-    swap(&self[k], &self[l])
-    self[k+1..<self.count] = self[k+1..<self.count].reverse()
+    var (l, k) = (self.endIndex, self.endIndex.predecessor())
+    while isOrderedBefore(self[k], self[--k]) {if k == 0 {return nil}}
+    while !isOrderedBefore(self[k], self[--l]) {}
+    swap(&self[k++], &self[l])
+    Swift.reverse(self[k..<self.endIndex])
     return self
   }
   /**
@@ -157,6 +149,13 @@ internal extension Array {
   */
   func chunk(n: Int) -> [ArraySlice<T>] {
     return ArraySlice(self).chunk(n)
+  }
+  /**
+  an endless repetition of self
+  */
+  func cycle() -> GeneratorOf<T> {
+    var g = self.generate()
+    return GeneratorOf {for;;g = self.generate(){if let n = g.next(){return n}}}
   }
   
   subscript(r: OpenEndedRange<Int>) -> ArraySlice<T> {

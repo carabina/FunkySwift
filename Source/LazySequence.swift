@@ -130,7 +130,7 @@ extension LazySequence {
       let next = g.next()
       for _ in 0..<n {g.next()}
       return next
-      })
+    })
   }
   
   /**
@@ -146,7 +146,8 @@ extension LazySequence {
   */
   
   func reduce(combine: (S.Generator.Element, S.Generator.Element) -> S.Generator.Element) -> S.Generator.Element? {
-    return self.takeFirst().map{ Swift.reduce(self.dropFirst(), $0, combine) }
+    var g = self.generate()
+    return g.next().map{ Swift.reduce(SequenceOf{g}, $0, combine) }
   }
   
   /**
@@ -193,11 +194,9 @@ extension LazySequence {
       
       return self.filter{
         element in
-        if !contains(prevs, {isEqual($0, element)}) {
+        if contains(prevs, {isEqual($0, element)}) { return false } else {
           prevs.append(element)
           return true
-        } else {
-          return false
         }
       }
   }
@@ -209,13 +208,8 @@ extension LazySequence {
   func cycle() -> LazySequence<GeneratorOf<S.Generator.Element>> {
     var g = self.generate()
     return lazy( GeneratorOf{
-      if let next = g.next() {
-        return next
-      } else {
-        g = self.generate()
-        return g.next()
-      }
-      } )
+      for ;; g = self.generate() { if let n = g.next() { return n } }
+    } )
   }
   
   /**

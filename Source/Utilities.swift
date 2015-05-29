@@ -51,18 +51,10 @@ Returns the next permutation of an array in lexicographical order
 :param: a the orderable array of elements to permute
 */
 func nextLexPerm<T: Comparable>(inout a: [T]) -> [T]? {
-  
-  var gen = lazy(a).reverse().generate()
-  var (l, k) = (a.endIndex, a.endIndex.predecessor().predecessor())
-  var (prev, cur) = (gen.next(), gen.next())
-  for (;cur >= prev; swap(&prev, &cur), cur = gen.next()) {k = k.predecessor()}
-  if k < a.startIndex {return nil}
-  gen = lazy(a).reverse().generate()
-  do {l = l.predecessor()} while gen.next() <= cur
-  swap(&a[k], &a[l])
-  reverse(a[k+1..<a.count])
+  var (l, k) = (a.endIndex, a.endIndex.predecessor())
+  while a[k] < a[--k] {if k == 0 {return nil}}; while a[--l] <= a[k] {}
+  swap(&a[k++], &a[l]); reverse(a[k..<a.endIndex])
   return a
-  
 }
 
 /**
@@ -189,7 +181,7 @@ func histoByClosure<K: Hashable, S: SequenceType>(seq: S, clos: [K:(S.Generator.
   }
 }
 /**
-returns a generator with all optionals unwrapped, and any that evaluates to nil removed
+returns a generator with all optionals unwrapped, and any that evaluate to nil removed
 */
 func skipNil<S: SequenceType, T where S.Generator.Element == T?>(seq: S) -> GeneratorOf<T> {
   var g = seq.generate()
