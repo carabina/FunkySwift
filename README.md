@@ -81,6 +81,15 @@ var mutAr = [1, 2, 3]   // [1, 2, 3]
 mutAr.nextLexPerm(<)    // [1, 3, 2]
 mutAr                   // [1, 3, 2]
 ```
+Function  | Description
+------------- | -------------
+`everyOf<T>(var ar: [[T]]) -> [[T]]` | returns an array of arrays, each array containing one element from every array, in every possible combination
+
+```swift
+everyOf([["a", "b"], ["c", "d"]]) // [["a", "c"], ["b", "c"], ["a", "d"], ["b", "d"]]
+everyOf([["a", "b"], ["c", "d"], ["e", "f"]])
+	//[["a", "c", "e"], ["b", "c", "e"], ["a", "d", "e"], ["b", "d", "e"], ["a", "c", "f"], ["b", "c", "f"], ["a", "d", "f"], ["b", "d", "f"]]
+	```
 
 ####The Rest####
 
