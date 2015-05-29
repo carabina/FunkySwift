@@ -28,7 +28,22 @@ internal extension Array {
     }
     return combos
   }
+  /**
+  Returns the combinations with repetition of a given length of self
   
+  :param: n length of the combinations
+  :returns: an array of combinations
+  */
+  func combosWithRep(n: Int) -> [[T]] {
+    var (objects, combos) = (self, [[T]]())
+    if n == 0 { combos = [[]] } else {
+      while let element = objects.last {
+        combos.extend(objects.combosWithRep(n - 1).map{ $0 + [element] })
+        objects.removeLast()
+      }
+    }
+    return combos
+  }
   /**
   Returns the permutations with repetition of a given length of self
   
@@ -159,5 +174,7 @@ extension ArraySlice {
     return self.count <= n ? [self] : [self[0..<n]] + self[n..<self.count].chunk(n)
   }
 }
-
+func everyOf<T>(var ar: [[T]]) -> [[T]] {
+  return ar.isEmpty ? [[]] : ar.removeLast().flatMap{ el in everyOf(ar).map{$0 + [el]} }
+}
 
