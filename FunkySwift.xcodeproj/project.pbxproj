@@ -56,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		701EA3C11B18F7E100ECBA16 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = SOURCE_ROOT; };
 		703366EA1B165F27007D4821 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		709AE42E1B162E6600090E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		709AE42F1B162E6600090E35 /* FunkySwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FunkySwiftTests.swift; sourceTree = "<group>"; };
@@ -120,6 +121,7 @@
 		709AE42C1B162E6600090E35 /* FunkySwiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				701EA3C11B18F7E100ECBA16 /* MyPlayground.playground */,
 				709AE42E1B162E6600090E35 /* Info.plist */,
 				709AE42F1B162E6600090E35 /* FunkySwiftTests.swift */,
 			);
