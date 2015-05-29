@@ -31,6 +31,11 @@ func uniques
     }
 }
 
+
+func filterMap<S: SequenceType, T>(seq: S, map: S.Generator.Element -> T, filter: S.Generator.Element -> Bool) -> GeneratorOf<T> {
+  var g = seq.generate()
+  return GeneratorOf{ while let e = g.next() { if filter(e) { return map(e) } }; return nil }
+}
 /**
 Checks if all elements in seq satisfy the condition
 
@@ -186,7 +191,7 @@ func histoByClosure<K: Hashable, S: SequenceType>(seq: S, clos: [K:(S.Generator.
 /**
 returns a generator with all optionals unwrapped, and any that evaluates to nil removed
 */
-func skipNil<S: SequenceType, T where S.Generator.Element == T?>(seq: S) -> GeneratorOf<T> {
+internal func skipNil<S: SequenceType, T where S.Generator.Element == T?>(seq: S) -> GeneratorOf<T> {
   var g = seq.generate()
   return GeneratorOf{ while let e = g.next() { if let e = e { return e }}; return nil }
 }
