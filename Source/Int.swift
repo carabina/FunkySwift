@@ -59,6 +59,46 @@ extension Int {
   */
   func times<T>(call: () -> T) { for _ in 0..<self { call() } }
   
+  func primesBelow() -> GeneratorOf<Int> {
+    let max = Int(ceil(sqrt(Double(self))))
+    var nums = [Int](0..<self)
+    var i = 1
+    return GeneratorOf {
+      for (var p = nums[++i]; i < self; p = nums[++i]) {
+        if p != 0 {
+          if p < max {for nP in stride(from: p*p, to: self, by: p){nums[nP] = 0}}
+          return p
+        }
+      }
+      return nil
+    }
+  }
+  
+  func primeFactors() -> GeneratorOf<Int> {
+    var g = self.primesBelow()
+    var accu = 1
+    return GeneratorOf{
+      while let next = g.next() where accu != self {
+        if self % next == 0{
+          for(var tot = accu; self % tot == 0; tot *= next) {accu = tot}
+          return next
+        }
+      }
+      return nil
+    }
+  }
+  
+  func isPrime() -> Bool {
+    switch self {
+    case let n where n < 2:
+      return false
+    case 2, 3:
+      return true
+    default:
+      return !contains((Int(sqrt(Double(self))) + 1).primesBelow()) {self % $0 == 0}
+    }
+  }
+  
   
 }
 
