@@ -389,6 +389,8 @@ Function  | Description
 `find<C : CollectionType>(domain: C, predicate: C.Generator.Element -> Bool) -> C.Index?` | Returns the first index where a value satisfies a predicate or nil if one is not found.
 `findMany<C : CollectionType where C.Generator.Element : Equatable>(domain: C, element: C.Generator.Element) -> LazySequence<FilterSequenceView<Range<C.Index>>>` | returns indices of elements that equal the element given
 `findMany<C : CollectionType>(domain: C, include: C.Generator.Element -> Bool) -> LazySequence<FilterSequenceView<Range<C.Index>>>` | Returns the indices of elements that satisfy the include closure.
+`findLast<C: CollectionType where C.Index: BidirectionalIndexType>(domain: C, condition: C.Generator.Element -> Bool) -> C.Index?` | Returns the first index where a value satisfies a condition or nil if one is not found.
+`findLast<C: CollectionType where C.Index: BidirectionalIndexType, C.Generator.Element: Equatable>(domain: C, value: C.Generator.Element) -> C.Index?` | Returns the last index where value appears in domain or nil if value is not found.
 
 These work the same as the standard `find()` function, except they can take a closure, and can return multiple indices.
 

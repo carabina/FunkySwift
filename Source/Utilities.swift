@@ -89,6 +89,30 @@ func find
     return nil
 }
 /**
+Returns the first index where a value satisfies a condition or nil if one is not found.
+*/
+func findLast
+  <C: CollectionType where C.Index: BidirectionalIndexType>
+  (domain: C, condition: C.Generator.Element -> Bool) -> C.Index? {
+    
+    for i in lazy(indices(domain)).reverse() { if condition(domain[i]) { return i } }
+    
+    return nil
+}
+/**
+Returns the last index where value appears in domain or nil if value is not found.
+*/
+
+func findLast
+  <C: CollectionType where C.Index: BidirectionalIndexType, C.Generator.Element: Equatable>
+  (domain: C, value: C.Generator.Element) -> C.Index? {
+    
+    for i in lazy(indices(domain)).reverse(){ if domain[i] == value { return i }}
+    
+    return nil
+}
+
+/**
 Returns the indices of elements that satisfy the include closure.
 */
 
