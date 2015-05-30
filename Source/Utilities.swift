@@ -194,6 +194,27 @@ func memoize<T: Hashable, U>(f: (T -> U)) -> (T -> U) {
   }
 }
 /**
+returns true if outer entirely contains inner
+*/
+func contains
+  <S0: SequenceType,
+  S1: SequenceType,
+  T: Equatable where
+  S0.Generator.Element == T,
+  S1.Generator.Element == T>
+  (outer: S0, inner: S1) -> Bool {
+    var (outerGen, innerGen) = (outer.generate(), inner.generate())
+    let first = innerGen.next()
+    while let n = outerGen.next() {
+      if n == first {
+        while let inNext = innerGen.next(){if outerGen.next() != inNext{return false}}
+        return true
+      }
+    }
+    return false
+}
+
+/**
 a lazy flatten function that produces a generator
 */
 func flatten
@@ -206,6 +227,19 @@ func flatten
     return nil
   }
 }
+
+/**
+replaces every element in seq that corresponds to a key in replacements with the value in replacements
+*/
+
+func replace
+  <S: SequenceType where S.Generator.Element: Hashable>
+  (seq: S, replacements: [S.Generator.Element:S.Generator.Element])
+  -> LazySequence<GeneratorOf<S.Generator.Element>> {
+    var g = seq.generate()
+    return lazy( GeneratorOf { g.next().map{replacements[$0] ?? $0} } )
+}
+
 func chunkWithEmpty<S: SequenceType>(seq: S, n: Int) ->  GeneratorOf<[S.Generator.Element]> {
   var (g, count) = (seq.generate(), n + 1)
   var innerGen = GeneratorOf{ count++ == n ? nil : g.next() }
