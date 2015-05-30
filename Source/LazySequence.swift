@@ -263,7 +263,11 @@ extension LazySequence {
     var (fGen, sGen) = (self.generate(), GeneratorOfOne(element))
     return lazy( GeneratorOf{ fGen.next() ?? sGen.next() })
   }
+  /**
+  returns a generator of the elements of self with "with" inserted between every element
   
+  :param: with the element to insert between every element of self
+  */
   func interpose(with: S.Generator.Element) -> GeneratorOf<S.Generator.Element> {
     var (i, g) = (0, self.generate())
     return GeneratorOf {

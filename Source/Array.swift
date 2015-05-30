@@ -157,6 +157,11 @@ internal extension Array {
     var g = self.generate()
     return GeneratorOf {for;;g = self.generate(){if let n = g.next(){return n}}}
   }
+  /**
+  returns a generator of the elements of self with "with" inserted between every element
+  
+  :param: with the element to insert between every element of self
+  */
   func interpose(with: T) -> GeneratorOf<T> {
     var (i, g) = (0, self.generate())
     return GeneratorOf {
