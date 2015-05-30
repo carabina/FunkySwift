@@ -8,57 +8,47 @@
 
 import Foundation
 import XCTest
-extension Array {
-  func perms2() -> [[T]] { return {(var ar) in ar.heaps2(ar.count)}(self) }
-  func perms() -> [[T]] { return {(var ar) in ar.heaps(ar.count)}(self) }
-  
-  private mutating func heaps(n: Int) -> [[T]] {
-    return n == 1 ? [self] :
-      Swift.reduce(0..<n, [[T]]()) {
-        (var shuffles, i) in
-        shuffles.extend(self.heaps(n - 1))
-        swap(&self[n % 2 == 0 ? i : 0], &self[n - 1])
-        return shuffles
-    }
-  }
-  
-  private mutating func heaps2(n: Int) -> [[T]] {
-    
-    if n == 1 {
-      return [self]
-    } else {
-      
-      var shuffles: [[T]] = []
-      
-      for i in 0..<n {
-        shuffles.extend(self.heaps2(n - 1))
-        swap(&self[n % 2 == 0 ? i : 0], &self[n - 1])
+extension LazySequence {
+  func dropWhile2(condition: S.Generator.Element -> Bool) -> LazySequence<GeneratorOf<S.Generator.Element>> {
+    var g = self.generate()
+    var notPassed = true
+    return lazy( GeneratorOf{
+      while notPassed {
+        let next = g.next()
+        if (next.map{!condition($0)} ?? true) {
+          notPassed = false
+          return next
+        }
       }
-      
-      return shuffles
-    }
+      return g.next()
+      }
+    )
+  }
+  func dropWhile1(condition: S.Generator.Element -> Bool) -> LazySequence<GeneratorOf<S.Generator.Element>> {
+    var sGen = self.generate()
+    var last = sGen.next()
+    while last.map(condition) == true { last = sGen.next() }
+    var fGen = GeneratorOfOne(last)
+    return lazy( GeneratorOf{ fGen.next() ?? sGen.next() } )
   }
 }
-
-
-let list = ["a", "a", "a", "b", "b"]
 
 
 class FunkySwiftTests: XCTestCase {
 
   func testOne() {
     self.measureBlock() {
-      for _ in 1...10000{
+      for _ in 1...1000000{
 
-        let jo = list.perms()
+        let jo = LazySequence([1, 2, 3, 4, 5, 6, 7]).dropWhile1{$0 < 6}.array
       }
 
     }
   }
   func testTwo() {
     self.measureBlock() {
-      for _ in 1...10000{
-        let jo = list.perms2()
+      for _ in 1...1000000{
+        let jo = LazySequence([1, 2, 3, 4, 5, 6, 7]).dropWhile2{$0 < 6}.array
       }
       
     }

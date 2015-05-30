@@ -30,7 +30,7 @@ extension LazySequence {
   
   func take(n: Int) -> LazySequence<GeneratorOf<S.Generator.Element>> {
     var (g, count) = (self.generate(), 0)
-    return lazy( GeneratorOf{ ++count > n ? nil : g.next() })
+    return lazy( GeneratorOf{ count++ == n ? nil : g.next() })
   }
   
   /**

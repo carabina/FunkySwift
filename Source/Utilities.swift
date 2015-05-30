@@ -206,3 +206,35 @@ func flatten
     return nil
   }
 }
+func chunkWithEmpty<S: SequenceType>(seq: S, n: Int) ->  GeneratorOf<[S.Generator.Element]> {
+  var (g, count) = (seq.generate(), n + 1)
+  var innerGen = GeneratorOf{ count++ == n ? nil : g.next() }
+  return GeneratorOf {
+    count -= (n + 1)
+    return count == 0 ? Array(innerGen) : nil
+  }
+}
+func chunk<S: SequenceType>(seq: S, n: Int) ->  GeneratorOf<[S.Generator.Element]> {
+  
+  var (g, count) = (seq.generate(), 0)
+  var left = true
+  
+  var innerGen = GeneratorOf<S.Generator.Element>{
+    
+    if count++ == n {
+      return nil
+    } else {
+      if let n = g.next() {
+        return n
+      } else {
+        left = false
+        return nil
+      }
+    }
+  }
+  
+  return GeneratorOf {
+    count = 0
+    return left ? Array(innerGen) : nil
+  }
+}
