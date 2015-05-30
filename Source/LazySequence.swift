@@ -276,5 +276,34 @@ extension LazySequence {
     }
   }
   
+  func zip<S1: SequenceType>(seq: S1) -> LazySequence<GeneratorOf<(S.Generator.Element, S1.Generator.Element)>> {
+    var (aG, bG) = (self.generate(), seq.generate())
+    return lazy( GeneratorOf {
+      if let a = aG.next(), b = bG.next() {
+        return (a, b)
+      } else {
+        return nil
+      }
+      })
+  }
+  func zipWith<S1: SequenceType, U>(seq: S1, combine: (S.Generator.Element, S1.Generator.Element) -> U) -> LazySequence<GeneratorOf<U>> {
+    var (aG, bG) = (self.generate(), seq.generate())
+    return lazy( GeneratorOf {
+      if let a = aG.next(), b = bG.next() {
+        return combine(a, b)
+      } else {
+        return nil
+      }
+      })
+  }
+  func flatMap<S1: SequenceType>(transform: S.Generator.Element -> S1) -> LazySequence<GeneratorOf<S1.Generator.Element>> {
+    var g = self.generate()
+    var iG = g.next().map(transform)?.generate()
+    return lazy( GeneratorOf{
+      while iG != nil {if let next = iG!.next() {return next} else {iG = g.next().map(transform)?.generate()}}
+      return nil
+      } )
+  }
+  
 }
 

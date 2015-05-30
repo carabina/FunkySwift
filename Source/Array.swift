@@ -153,21 +153,27 @@ internal extension Array {
   /**
   an endless repetition of self
   */
-  func cycle() -> GeneratorOf<T> {
+  func cycle() -> LazySequence<GeneratorOf<T>> {
     var g = self.generate()
-    return GeneratorOf {for;;g = self.generate(){if let n = g.next(){return n}}}
+    return lazy( GeneratorOf {for;;g = self.generate(){if let n = g.next(){return n}}} )
   }
   /**
-  returns a generator of the elements of self with "with" inserted between every element
+  returns a LazySequence of the elements of self with "with" inserted between every element
   
   :param: with the element to insert between every element of self
   */
-  func interpose(with: T) -> GeneratorOf<T> {
+  func interpose(with: T) -> LazySequence<GeneratorOf<T>> {
     var (i, g) = (0, self.generate())
-    return GeneratorOf {
+    return lazy( GeneratorOf {
       i ^= 1
       return i == 0 ? with : g.next()
-    }
+    } )
+  }
+  /**
+  returns an array of arrays, each array containing one element from every array, in every possible combination
+  */
+  func everyOf<S: SequenceType where S.Generator.Element == T>(ar: S...) -> [[T]] {
+    return ar.reduce(self.map{[$0]}){pa, la in pa.flatMap{pe in Swift.map(la){pe + [$0]}}}
   }
   subscript(r: OpenEndedRange<Int>) -> ArraySlice<T> {
     return self[r.start..<self.count]
@@ -185,10 +191,4 @@ extension ArraySlice {
   }
 }
 
-/**
-returns an array of arrays, each array containing one element from every array, in every possible combination
-*/
-func everyOf<T>(var ar: [[T]]) -> [[T]] {
-  return ar.isEmpty ? [[]] : ar.removeLast().flatMap{ el in everyOf(ar).map{$0 + [el]} }
-}
 
