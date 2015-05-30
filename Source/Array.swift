@@ -173,6 +173,10 @@ extension ArraySlice {
     return self.count <= n ? [self] : [self[0..<n]] + self[n..<self.count].chunk(n)
   }
 }
+
+/**
+returns an array of arrays, each array containing one element from every array, in every possible combination
+*/
 func everyOf<T>(var ar: [[T]]) -> [[T]] {
   return ar.isEmpty ? [[]] : ar.removeLast().flatMap{ el in everyOf(ar).map{$0 + [el]} }
 }

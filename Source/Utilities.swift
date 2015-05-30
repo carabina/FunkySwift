@@ -145,14 +145,9 @@ Categorises elements of a sequence according to closures.
 */
 
 func catByClosure<K: Hashable, S: SequenceType>(seq: S, clos: [K:(S.Generator.Element -> Bool)]) -> [K : [S.Generator.Element]] {
-  
-  let empty: [K:[S.Generator.Element]] = [:]
-  
-  return reduce(clos, empty) {
-    (var accu, el) in
-    accu[el.0] = filter(seq, el.1) + (accu[el.0] ?? [])
-    return accu
-  }
+  var accu: [K:[S.Generator.Element]] = [:]
+  for el in clos { accu[el.0] = filter(seq, el.1) + (accu[el.0] ?? []) }
+  return accu
 }
 
 /**
@@ -160,25 +155,17 @@ returns a dictionary of which the keys are the elements in seq, and the values a
 */
 
 func histo<S: SequenceType where S.Generator.Element: Hashable>(seq: S) -> [S.Generator.Element:Int] {
-  
-  return reduce(seq, [:]) {
-    
-    (var accu: [S.Generator.Element:Int], element) in
-    accu[element] = accu[element]?.successor() ?? 1
-    return accu
-    
-  }
+  var accu: [S.Generator.Element:Int] = [:]
+  for element in seq { accu[element] = accu[element]?.successor() ?? 1 }
+  return accu
 }
 /**
 returns a dictionary of which the keys are the keys of clos in seq, and the values are the number of elements that match for each closure in clos
 */
 func histoByClosure<K: Hashable, S: SequenceType>(seq: S, clos: [K:(S.Generator.Element -> Bool)]) -> [K : Int] {
-  
-  return reduce(clos, [K:Int]()) {
-    (var accu, el) in
-    accu[el.0] = filter(seq, el.1).count + (accu[el.0] ?? 0)
-    return accu
-  }
+  var accu: [K : Int] = [:]
+  for el in clos { accu[el.0] = filter(seq, el.1).count + (accu[el.0] ?? 0) }
+  return accu
 }
 /**
 returns a generator with all optionals unwrapped, and any that evaluate to nil removed

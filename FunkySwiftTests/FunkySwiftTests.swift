@@ -8,32 +8,49 @@
 
 import Foundation
 import XCTest
-func skipNil2<S: SequenceType, T where S.Generator.Element == T?>(seq: S) -> GeneratorOf<T> {
-  var g = seq.generate()
-  return GeneratorOf{
-    for;;{
-      if let e = g.next(){
-        if let e = e { return e }
-      } else {
-        return nil
+extension Array {
+  func perms2() -> [[T]] { return {(var ar) in ar.heaps2(ar.count)}(self) }
+  func perms() -> [[T]] { return {(var ar) in ar.heaps(ar.count)}(self) }
+  
+  private mutating func heaps(n: Int) -> [[T]] {
+    return n == 1 ? [self] :
+      Swift.reduce(0..<n, [[T]]()) {
+        (var shuffles, i) in
+        shuffles.extend(self.heaps(n - 1))
+        swap(&self[n % 2 == 0 ? i : 0], &self[n - 1])
+        return shuffles
+    }
+  }
+  
+  private mutating func heaps2(n: Int) -> [[T]] {
+    
+    if n == 1 {
+      return [self]
+    } else {
+      
+      var shuffles: [[T]] = []
+      
+      for i in 0..<n {
+        shuffles.extend(self.heaps2(n - 1))
+        swap(&self[n % 2 == 0 ? i : 0], &self[n - 1])
       }
+      
+      return shuffles
     }
   }
 }
-func skipNil3<S: SequenceType, T where S.Generator.Element == T?>(seq: S) -> GeneratorOf<T> {
-  var g = seq.generate()
-  return GeneratorOf{ while let e = g.next() { if let e = e { return e }}; return nil }
-}
-let jo: [Int?] = [1, nil, 2, nil, 3, nil, 4, nil, 5, nil, 6]
+
+
+let list = ["a", "a", "a", "b", "b"]
+
+
 class FunkySwiftTests: XCTestCase {
 
   func testOne() {
     self.measureBlock() {
       for _ in 1...10000{
 
-        for i in lazy(jo).filter({$0 != nil}).map({$0!}) {
-          let jojo = i
-        }
+        let jo = list.perms()
       }
 
     }
@@ -41,23 +58,12 @@ class FunkySwiftTests: XCTestCase {
   func testTwo() {
     self.measureBlock() {
       for _ in 1...10000{
-        for i in skipNil(jo) {
-          let jojo = i
-        }
+        let jo = list.perms2()
       }
       
     }
   }
-  func testThree() {
-    self.measureBlock() {
-      for _ in 1...10000{
-        for i in skipNil2(jo) {
-          let jojo = i
-        }
-      }
-      
-    }
-  }
+
 
   
 }
