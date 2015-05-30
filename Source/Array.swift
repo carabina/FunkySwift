@@ -157,7 +157,13 @@ internal extension Array {
     var g = self.generate()
     return GeneratorOf {for;;g = self.generate(){if let n = g.next(){return n}}}
   }
-  
+  func interpose(with: T) -> GeneratorOf<T> {
+    var (i, g) = (0, self.generate())
+    return GeneratorOf {
+      i ^= 1
+      return i == 0 ? with : g.next()
+    }
+  }
   subscript(r: OpenEndedRange<Int>) -> ArraySlice<T> {
     return self[r.start..<self.count]
   }

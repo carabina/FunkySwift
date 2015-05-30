@@ -264,5 +264,13 @@ extension LazySequence {
     return lazy( GeneratorOf{ fGen.next() ?? sGen.next() })
   }
   
+  func interpose(with: S.Generator.Element) -> GeneratorOf<S.Generator.Element> {
+    var (i, g) = (0, self.generate())
+    return GeneratorOf {
+      i ^= 1
+      return i == 0 ? with : g.next()
+    }
+  }
+  
 }
 
