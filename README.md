@@ -111,11 +111,14 @@ Function  | Description
 ------------- | -------------
 `chunk(n: Int) -> [ArraySlice<T>]` | returns an array of chunks of self, all of length n. The last chunk may be smaller than n.
 `cycle() -> GeneratorOf<T> ` | an endless repetition of self
+`interpose(with: S.Generator.Element) -> GeneratorOf<S.Generator.Element>` | returns a generator of the elements of self with "with" inserted between every element
+
 ```swift
 [1, 2, 3, 4, 5].chunk(2) 	// [[1, 2], [3, 4], [5]]
 for i in [1, 2, 3].cycle() { 
   print(i)			// 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3...
 }
+Array([1, 2, 3, 4, 5].interpose(6)) // [1, 6, 2, 6, 3, 6, 4, 6, 5, 6]
 
 ```
 
@@ -238,6 +241,14 @@ These are not fast. Sequences in Swift aren't lists: these aren't really `cons()
 Function  | Description
 ------------- | -------------
 `uniques (isEqual: (S.Generator.Element, S.Generator.Element) -> Bool) -> LazySequence<FilterSequenceView<S>>` | Returns a LazySequence of self without repetitions, according to the isEqual closure. (the non-method function is much faster)
+
+Function  | Description
+------------- | -------------
+`interpose(with: S.Generator.Element) -> GeneratorOf<S.Generator.Element>` | returns a generator of the elements of self with "with" inserted between every element
+
+```swift
+Array(LazySequence([1, 2, 3, 4, 5]).interpose(6)) // [1, 6, 2, 6, 3, 6, 4, 6, 5, 6]
+```
 
 ## Int ##
 Function  | Description
