@@ -83,12 +83,11 @@ mutAr                   // [1, 3, 2]
 ```
 Function  | Description
 ------------- | -------------
-`everyOf<T>(var ar: [[T]]) -> [[T]]` | returns an array of arrays, each array containing one element from every array, in every possible combination
+`everyOf<S: SequenceType where S.Generator.Element == T>(ar: S...) -> [[T]]` | returns an array of arrays, each array containing one element from every array, in every possible combination
 
 ```swift
-everyOf([["a", "b"], ["c", "d"]]) // [["a", "c"], ["b", "c"], ["a", "d"], ["b", "d"]]
-everyOf([["a", "b"], ["c", "d"], ["e", "f"]])
-	//[["a", "c", "e"], ["b", "c", "e"], ["a", "d", "e"], ["b", "d", "e"], ["a", "c", "f"], ["b", "c", "f"], ["a", "d", "f"], ["b", "d", "f"]]
+[1, 2, 3].everyOf([1, 2]) // [[1, 1], [1, 2], [2, 1], [2, 2], [3, 1], [3, 2]]
+[1, 2].everyOf([3, 4], [5, 6]) // [[1, 3, 5], [1, 3, 6], [1, 4, 5], [1, 4, 6], [2, 3, 5], [2, 3, 6], [2, 4, 5], [2, 4, 6]]
 ```
 
 ####The Rest####
