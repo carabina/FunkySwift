@@ -205,13 +205,8 @@ func contains
   (outer: S0, inner: S1) -> Bool {
     var (outerGen, innerGen) = (outer.generate(), inner.generate())
     let first = innerGen.next()
-    while let n = outerGen.next() {
-      if n == first {
-        while let inNext = innerGen.next(){if outerGen.next() != inNext{return false}}
-        return true
-      }
-    }
-    return false
+    while outerGen.next() != first {}
+    return startsWith(GeneratorSequence(outerGen), GeneratorSequence(innerGen))
 }
 
 /**
