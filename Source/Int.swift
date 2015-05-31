@@ -117,3 +117,11 @@ func |+(lhs: Int, rhs: Int) -> Int {
   return lhs.concat(rhs)
   
 }
+
+func remquo(x: Int, y: Int) -> (Int, Int) {
+  
+  let ans = div(Int32(x), Int32(y))
+  
+  return (Int(ans.rem), Int(ans.quot))
+  
+}
