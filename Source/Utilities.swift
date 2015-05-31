@@ -203,10 +203,10 @@ func contains
   S0.Generator.Element == T,
   S1.Generator.Element == T>
   (outer: S0, inner: S1) -> Bool {
-    var (outerGen, innerGen) = (outer.generate(), inner.generate())
-    let first = innerGen.next()
-    while outerGen.next() != first {}
-    return startsWith(GeneratorSequence(outerGen), GeneratorSequence(innerGen))
+    var outerGen = outer.generate()
+    do { if startsWith(GeneratorSequence(outerGen), inner) { return true }
+    } while outerGen.next() != nil
+    return false
 }
 
 /**
