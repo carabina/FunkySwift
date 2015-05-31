@@ -428,6 +428,25 @@ These work the same as the standard `find()` function, except they can take a cl
 
 Function  | Description
 ------------- | -------------
+`contains<S0: SequenceType, S1: SequenceType, T: Equatable where  S0.Generator.Element == T, S1.Generator.Element == T> (outer: S0, inner: S1) -> Bool` | returns true if outer entirely contains inner
+`replace <S: SequenceType where S.Generator.Element: Hashable> (seq: S, replacements: [S.Generator.Element:S.Generator.Element]) -> LazySequence<GeneratorOf<S.Generator.Element>>` | replaces every element in seq that corresponds to a key in replacements with the value in replacements
+
+```swift
+contains([1, 2, 3, 4], [2, 3, 4]) 		// true
+contains([1, 2, 3, 4], [3, 4, 5]) 		// false
+
+contains("hello", "llo") 			// true
+contains("hiya", "llo") 			// false
+
+replace([1, 2, 3, 4], [2:8]).array 		// [1, 8, 3, 4]
+
+let str = "tebbo"
+String(replace(str, ["t": "h", "b": "l"])) 	// "hello"
+```
+
+
+Function  | Description
+------------- | -------------
 `catByClosure<K: Hashable, S: SequenceType>(seq: S, clos: [K:(S.Generator.Element -> Bool)]) -> [K : [S.Generator.Element]]` | Categorises elements of a sequence according to closures.
 `histo<S: SequenceType where S.Generator.Element: Hashable>(seq: S) -> [S.Generator.Element:Int]` | returns a dictionary of which the keys are the elements in seq, and the values are the number of times each element occurs
 `histoByClosure<K: Hashable, S: SequenceType>(seq: S, clos: [K:(S.Generator.Element -> Bool)]) -> [K : Int]` | returns a dictionary of which the keys are the keys of clos in seq, and the values are the number of elements that match for each closure in clos
